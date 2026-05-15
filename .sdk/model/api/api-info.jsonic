@@ -1,0 +1,27 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API/issues"
+      }
+      description: "This API provides access to a wide range of movie and series information without requiring API keys. Users can fetch detailed movie data, including titles, genres, and descriptions efficiently and for free. The API is a RESTful web service to obtain movie information. All content and images on the site are contributed and maintained by users."
+      license: {
+        name: "AGPL-3.0"
+        url: "https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API/blob/master/LICENSE"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://imdb.iamidiotareyoutoo.com"
+        }
+      ]
+      title: "Free Movie API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

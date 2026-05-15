@@ -1,0 +1,150 @@
+# Entity: movie
+
+main: kit: entity: movie: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "actor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "award"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "box_office"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "country"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "director"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "genre"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "plot"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "poster"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rating"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "released"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "runtime"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "vote"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "writer"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "year"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "movie"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "tt0133093"
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/movie/{id}"
+          parts: [
+            "movie"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

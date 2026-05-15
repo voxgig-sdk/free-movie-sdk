@@ -1,0 +1,32 @@
+# BasicMovieFlow
+
+main: kit: flow: BasicMovieFlow:
+{
+  entity: "movie",
+  kind: "basic",
+  name: "BasicMovieFlow",
+  step: [
+    {
+      input: {
+        ref: "movie_ref01",
+        srcdatavar: "movie_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "movie01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-movie_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMovieFlow"
+}

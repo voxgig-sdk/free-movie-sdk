@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "id": "SEARCH00",
+        "poster": "s3d",
+        "rating": 62,
+        "title": "s3f",
+        "type": "s40",
+        "year": "s41"
+      },
+      "SEARCH01": {
+        "id": "SEARCH01",
+        "poster": "s79",
+        "rating": 122,
+        "title": "s7b",
+        "type": "s7c",
+        "year": "s7d"
+      },
+      "SEARCH02": {
+        "id": "SEARCH02",
+        "poster": "sb5",
+        "rating": 182,
+        "title": "sb7",
+        "type": "sb8",
+        "year": "sb9"
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "poster": "sf1",
+        "rating": 242,
+        "title": "sf3",
+        "type": "sf4",
+        "year": "sf5"
+      }
+    }
+  }
+}

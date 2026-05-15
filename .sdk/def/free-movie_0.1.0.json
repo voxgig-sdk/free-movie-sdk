@@ -1,0 +1,360 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Free Movie API",
+    "description": "This API provides access to a wide range of movie and series information without requiring API keys. Users can fetch detailed movie data, including titles, genres, and descriptions efficiently and for free. The API is a RESTful web service to obtain movie information. All content and images on the site are contributed and maintained by users.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API/issues"
+    },
+    "license": {
+      "name": "AGPL-3.0",
+      "url": "https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API/blob/master/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://imdb.iamidiotareyoutoo.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/search": {
+      "get": {
+        "summary": "Search for movies and series",
+        "description": "Search for movies and series by title. Returns a list of matching results with detailed information.",
+        "operationId": "searchMovies",
+        "tags": [
+          "Search"
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search query for movie or series title",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "The Matrix"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MovieResult"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total number of results found",
+                      "example": 150
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing or invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movie/{id}": {
+      "get": {
+        "summary": "Get detailed movie information",
+        "description": "Retrieve detailed information about a specific movie or series by its ID",
+        "operationId": "getMovieById",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "IMDb ID or unique identifier of the movie/series",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "tt0133093"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with movie details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Movie not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MovieResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the movie/series",
+            "example": "tt0133093"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the movie or series",
+            "example": "The Matrix"
+          },
+          "year": {
+            "type": "string",
+            "description": "Release year",
+            "example": "1999"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of content",
+            "enum": [
+              "movie",
+              "series",
+              "episode"
+            ],
+            "example": "movie"
+          },
+          "poster": {
+            "type": "string",
+            "description": "URL to the poster image",
+            "example": "https://example.com/poster.jpg"
+          },
+          "rating": {
+            "type": "number",
+            "format": "float",
+            "description": "IMDb rating",
+            "example": 8.7
+          }
+        }
+      },
+      "MovieDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the movie/series",
+            "example": "tt0133093"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the movie or series",
+            "example": "The Matrix"
+          },
+          "year": {
+            "type": "string",
+            "description": "Release year",
+            "example": "1999"
+          },
+          "rated": {
+            "type": "string",
+            "description": "Content rating",
+            "example": "R"
+          },
+          "released": {
+            "type": "string",
+            "description": "Release date",
+            "example": "31 Mar 1999"
+          },
+          "runtime": {
+            "type": "string",
+            "description": "Runtime duration",
+            "example": "136 min"
+          },
+          "genre": {
+            "type": "string",
+            "description": "Comma-separated list of genres",
+            "example": "Action, Sci-Fi"
+          },
+          "director": {
+            "type": "string",
+            "description": "Director name(s)",
+            "example": "Lana Wachowski, Lilly Wachowski"
+          },
+          "writer": {
+            "type": "string",
+            "description": "Writer name(s)",
+            "example": "Lana Wachowski, Lilly Wachowski"
+          },
+          "actors": {
+            "type": "string",
+            "description": "Comma-separated list of main actors",
+            "example": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss"
+          },
+          "plot": {
+            "type": "string",
+            "description": "Plot summary",
+            "example": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+          },
+          "language": {
+            "type": "string",
+            "description": "Languages available",
+            "example": "English"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country of origin",
+            "example": "USA"
+          },
+          "awards": {
+            "type": "string",
+            "description": "Awards and nominations",
+            "example": "Won 4 Oscars. Another 37 wins & 51 nominations."
+          },
+          "poster": {
+            "type": "string",
+            "description": "URL to the poster image",
+            "example": "https://example.com/poster.jpg"
+          },
+          "rating": {
+            "type": "number",
+            "format": "float",
+            "description": "IMDb rating",
+            "example": 8.7
+          },
+          "votes": {
+            "type": "string",
+            "description": "Number of votes",
+            "example": "1,500,000"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of content",
+            "enum": [
+              "movie",
+              "series",
+              "episode"
+            ],
+            "example": "movie"
+          },
+          "boxOffice": {
+            "type": "string",
+            "description": "Box office earnings",
+            "example": "$171,479,930"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message",
+            "example": "Invalid request parameters"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description",
+            "example": "The query parameter 'q' is required"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Search",
+      "description": "Search operations for movies and series"
+    },
+    {
+      "name": "Movies",
+      "description": "Operations for retrieving detailed movie and series information"
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation and Source Code",
+    "url": "https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API"
+  }
+}

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/free-movie-sdk"
-	"github.com/voxgig-sdk/free-movie-sdk/core"
+	sdk "github.com/voxgig-sdk/free-movie-sdk/go"
+	"github.com/voxgig-sdk/free-movie-sdk/go/core"
 )
 
 func TestMovieDirect(t *testing.T) {

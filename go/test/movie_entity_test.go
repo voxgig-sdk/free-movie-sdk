@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/free-movie-sdk"
-	"github.com/voxgig-sdk/free-movie-sdk/core"
+	sdk "github.com/voxgig-sdk/free-movie-sdk/go"
+	"github.com/voxgig-sdk/free-movie-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/free-movie-sdk/go/utility/struct"
 )
 
 func TestMovieEntity(t *testing.T) {

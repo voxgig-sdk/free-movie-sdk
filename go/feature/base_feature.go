@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/free-movie-sdk/core"
+	"github.com/voxgig-sdk/free-movie-sdk/go/core"
 )
 
 type BaseFeature struct {

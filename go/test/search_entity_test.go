@@ -119,7 +119,6 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 		"FREEMOVIE_TEST_SEARCH_ENTID": idmap,
 		"FREEMOVIE_TEST_LIVE":      "FALSE",
 		"FREEMOVIE_TEST_EXPLAIN":   "FALSE",
-		"FREEMOVIE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FREEMOVIE_TEST_SEARCH_ENTID"])
@@ -130,7 +129,6 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FREEMOVIE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["FREEMOVIE_APIKEY"],
 			},
 			extra,
 		})

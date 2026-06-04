@@ -31,9 +31,7 @@ loading a specific record.
 ```ruby
 require_relative "FreeMovie_sdk"
 
-client = FreeMovieSDK.new({
-  "apikey" => ENV["FREE-MOVIE_APIKEY"],
-})
+client = FreeMovieSDK.new({})
 ```
 
 ### 3. Load a movie
@@ -121,7 +119,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FREE-MOVIE_TEST_LIVE=TRUE
-FREE-MOVIE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -144,7 +141,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

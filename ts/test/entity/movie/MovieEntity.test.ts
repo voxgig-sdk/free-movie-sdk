@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'FREE_MOVIE_TEST_MOVIE_ENTID': idmap,
     'FREE_MOVIE_TEST_LIVE': 'FALSE',
     'FREE_MOVIE_TEST_EXPLAIN': 'FALSE',
+    'FREE_MOVIE_APIKEY': 'NONE',
   })
 
   idmap = env['FREE_MOVIE_TEST_MOVIE_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FreeMovieSDK(merge([
       {
+        apikey: env.FREE_MOVIE_APIKEY,
       },
       extra
     ]))

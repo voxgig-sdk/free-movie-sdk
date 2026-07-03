@@ -95,6 +95,7 @@ function movie_basic_setup(extra)
     ["FREEMOVIE_TEST_MOVIE_ENTID"] = idmap,
     ["FREEMOVIE_TEST_LIVE"] = "FALSE",
     ["FREEMOVIE_TEST_EXPLAIN"] = "FALSE",
+    ["FREEMOVIE_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -106,6 +107,7 @@ function movie_basic_setup(extra)
   if env["FREEMOVIE_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["FREEMOVIE_APIKEY"],
       },
       extra or {},
     })

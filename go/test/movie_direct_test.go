@@ -110,12 +110,14 @@ func movieDirectSetup(mockres any) *movieDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FREEMOVIE_TEST_MOVIE_ENTID": map[string]any{},
 		"FREEMOVIE_TEST_LIVE":    "FALSE",
+		"FREEMOVIE_APIKEY":       "NONE",
 	})
 
 	live := env["FREEMOVIE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["FREEMOVIE_APIKEY"],
 		}
 		client := sdk.NewFreeMovieSDK(mergedOpts)
 

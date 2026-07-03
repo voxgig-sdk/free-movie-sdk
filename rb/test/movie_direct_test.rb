@@ -69,12 +69,14 @@ def movie_direct_setup(mockres)
   env = Runner.env_override({
     "FREEMOVIE_TEST_MOVIE_ENTID" => {},
     "FREEMOVIE_TEST_LIVE" => "FALSE",
+    "FREEMOVIE_APIKEY" => "NONE",
   })
 
   live = env["FREEMOVIE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["FREEMOVIE_APIKEY"],
     }
     client = FreeMovieSDK.new(merged_opts)
     return {

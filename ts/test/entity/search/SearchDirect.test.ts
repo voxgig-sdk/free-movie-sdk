@@ -82,12 +82,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FREEMOVIE_TEST_SEARCH_ENTID': {},
     'FREEMOVIE_TEST_LIVE': 'FALSE',
+    'FREEMOVIE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FREEMOVIE_TEST_LIVE
 
   if (live) {
     const client = new FreeMovieSDK({
+      apikey: env.FREEMOVIE_APIKEY,
     })
 
     let idmap: any = env['FREEMOVIE_TEST_SEARCH_ENTID']

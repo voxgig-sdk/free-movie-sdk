@@ -20,28 +20,7 @@ main: {
       ]
       title: "Free Movie API"
       version: "1.0.0"
-      tagline: "Look up movie and series details by title or IMDb ID, with no API key required"
-      homepage: "https://imdb.iamidiotareyoutoo.com"
-      docs_url: "https://imdb.iamidiotareyoutoo.com"
-      license_short: "AGPL-3.0 — free to use; derivative network services must publish source"
-      license_md: `- Project is published under the **GNU Affero General Public License v3.0**.
-- The service is not endorsed by or affiliated with IMDb.com; the operators state "All content and images are contributed and maintained by our users."
-- Under AGPL-3.0, if you modify the server and expose it over a network, you must make the modified source available to its users.
-- Attribution to the upstream project is recommended whenever you redistribute or build on the data.`
-      about_md: `The Free Movie API (also referred to as **FM-DB**) is an unofficial, key-free RESTful service for looking up movie and series information, hosted at [imdb.iamidiotareyoutoo.com](https://imdb.iamidiotareyoutoo.com). It is community-maintained and is not affiliated with IMDb.com.
-
-What you get from the API:
-
-- Search by movie or series **title** (for example \`Spiderman\`).
-- Look up a specific entry by **IMDb ID** (for example \`tt0145487\`).
-- Structured details such as titles, genres, and descriptive metadata.
-
-No authentication, API key, or signup is needed; both documented endpoints accept plain HTTPS GET requests and are reported as CORS-enabled, which makes them convenient to call directly from a browser. The community catalogue page for this API reports average response times in the 1,018–1,200 ms range and 100% uptime over the most recent 30-day window, though no formal rate limit is published, so be considerate when batching requests.`
-      entity_desc: {
-        movie: "A film or series record sourced from the FM-DB dataset; individual entries can be retrieved by their IMDb ID (e.g. `tt0145487`)."
-        search: "A query operation that returns matching movie or series records for a given title string (e.g. `Spiderman`)."
-      }
-      auth: false
     }
   }
 }
+

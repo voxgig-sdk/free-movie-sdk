@@ -1,20 +1,8 @@
 # FreeMovie SDK
 
-Look up movie and series details by title or IMDb ID, with no API key required
+Free Movie API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Free Movie API
-
-The Free Movie API (also referred to as **FM-DB**) is an unofficial, key-free RESTful service for looking up movie and series information, hosted at [imdb.iamidiotareyoutoo.com](https://imdb.iamidiotareyoutoo.com). It is community-maintained and is not affiliated with IMDb.com.
-
-What you get from the API:
-
-- Search by movie or series **title** (for example `Spiderman`).
-- Look up a specific entry by **IMDb ID** (for example `tt0145487`).
-- Structured details such as titles, genres, and descriptive metadata.
-
-No authentication, API key, or signup is needed; both documented endpoints accept plain HTTPS GET requests and are reported as CORS-enabled, which makes them convenient to call directly from a browser. The community catalogue page for this API reports average response times in the 1,018–1,200 ms range and 100% uptime over the most recent 30-day window, though no formal rate limit is published, so be considerate when batching requests.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install free-movie-sdk
 luarocks install free-movie-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FreeMovieSDK } from 'free-movie'
 
-const client = new FreeMovieSDK({})
+const client = new FreeMovieSDK({
+  apikey: process.env.FREE-MOVIE_APIKEY,
+})
 
+// Load movie data
+const movie = await client.Movie().load({})
+console.log(movie.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Movie** | A film or series record sourced from the FM-DB dataset; individual entries can be retrieved by their IMDb ID (e.g. `tt0145487`). | `/movie/{id}` |
-| **Search** | A query operation that returns matching movie or series records for a given title string (e.g. `Spiderman`). | `/search` |
+| **Movie** |  | `/movie/{id}` |
+| **Search** |  | `/search` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from freemovie_sdk import FreeMovieSDK
 
-client = FreeMovieSDK({})
+client = FreeMovieSDK({
+    "apikey": os.environ.get("FREE-MOVIE_APIKEY"),
+})
 
 
 # Load a specific movie
-movie, err = client.Movie(None).load(
-    {"id": "example_id"}, None
-)
+movie, err = client.Movie().load({"id": "example_id"})
+print(movie)
 ```
 
 ### PHP
@@ -126,13 +120,14 @@ movie, err = client.Movie(None).load(
 <?php
 require_once 'freemovie_sdk.php';
 
-$client = new FreeMovieSDK([]);
+$client = new FreeMovieSDK([
+    "apikey" => getenv("FREE-MOVIE_APIKEY"),
+]);
 
 
 // Load a specific movie
-[$movie, $err] = $client->Movie(null)->load(
-    ["id" => "example_id"], null
-);
+[$movie, $err] = $client->Movie()->load(["id" => "example_id"]);
+print_r($movie);
 ```
 
 ### Golang
@@ -140,8 +135,13 @@ $client = new FreeMovieSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/free-movie-sdk/go"
 
-client := sdk.NewFreeMovieSDK(map[string]any{})
+client := sdk.NewFreeMovieSDK(map[string]any{
+    "apikey": os.Getenv("FREE-MOVIE_APIKEY"),
+})
 
+// Load movie data
+movie, err := client.Movie(nil).Load(map[string]any{}, nil)
+fmt.Println(movie)
 ```
 
 ### Ruby
@@ -149,13 +149,14 @@ client := sdk.NewFreeMovieSDK(map[string]any{})
 ```ruby
 require_relative "FreeMovie_sdk"
 
-client = FreeMovieSDK.new({})
+client = FreeMovieSDK.new({
+  "apikey" => ENV["FREE-MOVIE_APIKEY"],
+})
 
 
 # Load a specific movie
-movie, err = client.Movie(nil).load(
-  { "id" => "example_id" }, nil
-)
+movie, err = client.Movie().load({ "id" => "example_id" })
+puts movie
 ```
 
 ### Lua
@@ -163,13 +164,14 @@ movie, err = client.Movie(nil).load(
 ```lua
 local sdk = require("free-movie_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FREE-MOVIE_APIKEY"),
+})
 
 
 -- Load a specific movie
-local movie, err = client:Movie(nil):load(
-  { id = "example_id" }, nil
-)
+local movie, err = client:Movie():load({ id = "example_id" })
+print(movie)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +190,21 @@ const result = await client.Movie().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FreeMovieSDK.test(None, None)
-result, err = client.Movie(None).load(
-    {"id": "test01"}, None
-)
+client = FreeMovieSDK.test()
+result, err = client.Movie().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FreeMovieSDK::test(null, null);
-[$result, $err] = $client->Movie(null)->load(
-    ["id" => "test01"], null
-);
+$client = FreeMovieSDK::test();
+[$result, $err] = $client->Movie()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Movie(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +213,15 @@ result, err := client.Movie(nil).Load(
 ### Ruby
 
 ```ruby
-client = FreeMovieSDK.test(nil, nil)
-result, err = client.Movie(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FreeMovieSDK.test
+result, err = client.Movie().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Movie(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Movie():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,15 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Free Movie API
-
-- Upstream: [https://imdb.iamidiotareyoutoo.com](https://imdb.iamidiotareyoutoo.com)
-
-- Project is published under the **GNU Affero General Public License v3.0**.
-- The service is not endorsed by or affiliated with IMDb.com; the operators state "All content and images are contributed and maintained by our users."
-- Under AGPL-3.0, if you modify the server and expose it over a network, you must make the modified source available to its users.
-- Attribution to the upstream project is recommended whenever you redistribute or build on the data.
 
 ---
 

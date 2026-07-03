@@ -86,6 +86,7 @@ def movie_basic_setup(extra)
     "FREEMOVIE_TEST_MOVIE_ENTID" => idmap,
     "FREEMOVIE_TEST_LIVE" => "FALSE",
     "FREEMOVIE_TEST_EXPLAIN" => "FALSE",
+    "FREEMOVIE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -97,6 +98,7 @@ def movie_basic_setup(extra)
   if env["FREEMOVIE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["FREEMOVIE_APIKEY"],
       },
       extra || {},
     ])

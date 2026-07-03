@@ -10,7 +10,7 @@ The Python SDK for the FreeMovie API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install free-movie-sdk
+pip install voxgig-sdk-free-movie
 ```
 
 Or install from source:

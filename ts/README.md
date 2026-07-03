@@ -10,7 +10,7 @@ The TypeScript SDK for the FreeMovie API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install free-movie
+npm install @voxgig-sdk/free-movie
 ```
 ## Tutorial: your first API call
 

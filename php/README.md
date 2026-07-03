@@ -10,7 +10,7 @@ The PHP SDK for the FreeMovie API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/free-movie-sdk
+composer require voxgig-sdk/free-movie
 ```
 
 

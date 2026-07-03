@@ -10,7 +10,7 @@ The Lua SDK for the FreeMovie API — an entity-oriented client using Lua conven
 
 ## Install
 ```bash
-luarocks install free-movie-sdk
+luarocks install voxgig-sdk-free-movie
 ```
 
 If the module is not yet published, add the source directory to

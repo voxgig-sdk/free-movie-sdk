@@ -10,13 +10,13 @@ The Ruby SDK for the FreeMovie API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install free-movie-sdk
+gem install voxgig-sdk-free-movie
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "free-movie-sdk"
+gem "voxgig-sdk-free-movie"
 ```
 
 Then run:

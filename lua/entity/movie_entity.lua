@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch MovieLoadMatch
+---@param ctrl? table
+---@return Movie
+---@return string? err
 function MovieEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

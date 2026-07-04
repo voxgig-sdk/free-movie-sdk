@@ -245,11 +245,17 @@ func (sdk *FreeMovieSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// Movie returns a Movie entity bound to this client.
+// Idiomatic usage: client.Movie(nil).List(nil, nil) or
+// client.Movie(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FreeMovieSDK) Movie(data map[string]any) FreeMovieEntity {
 	return NewMovieEntityFunc(sdk, data)
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FreeMovieSDK) Search(data map[string]any) FreeMovieEntity {
 	return NewSearchEntityFunc(sdk, data)
 }

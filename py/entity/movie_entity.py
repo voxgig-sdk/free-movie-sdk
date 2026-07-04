@@ -1,7 +1,13 @@
 # FreeMovie SDK Movie entity
 
+from __future__ import annotations
+
 from utility.voxgig_struct import voxgig_struct as vs
 from core import helpers
+from freemovie_types import (
+    Movie,
+    MovieLoadMatch,
+)
 
 
 class MovieEntity:
@@ -44,7 +50,7 @@ class MovieEntity:
             self._data = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetData")
 
-    def data_get(self):
+    def data_get(self) -> Movie:
         self._utility.feature_hook(self._entctx, "GetData")
         return vs.clone(self._data)
 
@@ -53,12 +59,12 @@ class MovieEntity:
             self._match = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetMatch")
 
-    def match_get(self):
+    def match_get(self) -> Movie:
         self._utility.feature_hook(self._entctx, "GetMatch")
         return vs.clone(self._match)
 
     
-    def load(self, reqmatch, ctrl=None):
+    def load(self, reqmatch: MovieLoadMatch, ctrl=None) -> Movie:
         utility = self._utility
         ctx = utility.make_context({
             "opname": "load",

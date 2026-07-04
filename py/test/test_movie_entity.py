@@ -51,8 +51,7 @@ class TestMovieEntity:
         movie_ref01_match_dt0 = {
             "id": movie_ref01_data["id"],
         }
-        movie_ref01_data_dt0_loaded, err = movie_ref01_ent.load(movie_ref01_match_dt0, None)
-        assert err is None
+        movie_ref01_data_dt0_loaded = movie_ref01_ent.load(movie_ref01_match_dt0, None)
         movie_ref01_data_dt0_load_result = helpers.to_map(movie_ref01_data_dt0_loaded)
         assert movie_ref01_data_dt0_load_result is not None
         assert movie_ref01_data_dt0_load_result["id"] == movie_ref01_data["id"]
@@ -95,7 +94,6 @@ def _movie_basic_setup(extra):
         "FREEMOVIE_TEST_MOVIE_ENTID": idmap,
         "FREEMOVIE_TEST_LIVE": "FALSE",
         "FREEMOVIE_TEST_EXPLAIN": "FALSE",
-        "FREEMOVIE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _movie_basic_setup(extra):
     if env.get("FREEMOVIE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FREEMOVIE_APIKEY"),
             },
             extra or {},
         ])

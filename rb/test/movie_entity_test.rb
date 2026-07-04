@@ -44,8 +44,7 @@ class MovieEntityTest < Minitest::Test
     movie_ref01_match_dt0 = {
       "id" => movie_ref01_data["id"],
     }
-    movie_ref01_data_dt0_loaded, err = movie_ref01_ent.load(movie_ref01_match_dt0, nil)
-    assert_nil err
+    movie_ref01_data_dt0_loaded = movie_ref01_ent.load(movie_ref01_match_dt0, nil)
     movie_ref01_data_dt0_load_result = Helpers.to_map(movie_ref01_data_dt0_loaded)
     assert !movie_ref01_data_dt0_load_result.nil?
     assert_equal movie_ref01_data_dt0_load_result["id"], movie_ref01_data["id"]
@@ -86,7 +85,6 @@ def movie_basic_setup(extra)
     "FREEMOVIE_TEST_MOVIE_ENTID" => idmap,
     "FREEMOVIE_TEST_LIVE" => "FALSE",
     "FREEMOVIE_TEST_EXPLAIN" => "FALSE",
-    "FREEMOVIE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -98,7 +96,6 @@ def movie_basic_setup(extra)
   if env["FREEMOVIE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FREEMOVIE_APIKEY"],
       },
       extra || {},
     ])

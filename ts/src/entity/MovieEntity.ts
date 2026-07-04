@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Movie,
+  MovieLoadMatch,
+} from '../FreeMovieTypes'
 
 // TODO: needs Entity superclass
-class MovieEntity extends FreeMovieEntityBase {
+class MovieEntity extends FreeMovieEntityBase<Movie> {
 
   constructor(client: FreeMovieSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class MovieEntity extends FreeMovieEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: MovieLoadMatch, ctrl?: Control): Promise<Movie> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class MovieEntity extends FreeMovieEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Movie> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

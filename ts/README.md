@@ -9,9 +9,12 @@ The TypeScript SDK for the FreeMovie API — a type-safe, entity-oriented client
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/free-movie
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/free-movie-sdk/releases](https://github.com/voxgig-sdk/free-movie-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FreeMovieSDK } from 'free-movie'
+import { FreeMovieSDK } from '@voxgig-sdk/free-movie'
 
-const client = new FreeMovieSDK({
-  apikey: process.env.FREE-MOVIE_APIKEY,
-})
+const client = new FreeMovieSDK()
 ```
 
 ### 3. Load a movie
 
 ```ts
-const result = await client.Movie().load({ id: 'example_id' })
+const result = await client.movie.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = FreeMovieSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.movie.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new FreeMovieSDK({ apikey: '...' })
+const client = new FreeMovieSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.movie
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new FreeMovieSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new FreeMovieSDK({
 Create a `.env.local` file at the project root:
 
 ```
-FREE-MOVIE_TEST_LIVE=TRUE
-FREE-MOVIE_APIKEY=<your-key>
+FREE_MOVIE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new FreeMovieSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new FreeMovieSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -300,7 +297,7 @@ API path: `/search`
 
 ### Movie
 
-Create an instance: `const movie = client.Movie()`
+Create an instance: `const movie = client.movie`
 
 #### Operations
 
@@ -335,13 +332,13 @@ Create an instance: `const movie = client.Movie()`
 #### Example: Load
 
 ```ts
-const movie = await client.Movie().load({ id: 'movie_id' })
+const movie = await client.movie.load({ id: 'movie_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -363,7 +360,7 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
@@ -424,7 +421,7 @@ free-movie/
 Import the SDK from the package root:
 
 ```ts
-import { FreeMovieSDK } from 'free-movie'
+import { FreeMovieSDK } from '@voxgig-sdk/free-movie'
 ```
 
 ### Entity state
@@ -434,11 +431,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const movie = client.movie
+await movie.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// movie.data() now returns the loaded movie data
+// movie.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

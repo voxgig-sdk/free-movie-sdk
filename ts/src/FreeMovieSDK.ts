@@ -3,6 +3,8 @@
 import { MovieEntity } from './entity/MovieEntity'
 import { SearchEntity } from './entity/SearchEntity'
 
+export type * from './FreeMovieTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class FreeMovieSDK {
 
 
 
+  _movie?: MovieEntity
+
+  // Idiomatic facade: `client.movie.list()` / `client.movie.load({ id })`.
+  get movie(): MovieEntity {
+    return (this._movie ??= new MovieEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.movie` instead. */
   Movie(data?: any) {
     const self = this
     return new MovieEntity(self,data)
   }
 
 
+  _search?: SearchEntity
+
+  // Idiomatic facade: `client.search.list()` / `client.search.load({ id })`.
+  get search(): SearchEntity {
+    return (this._search ??= new SearchEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.search` instead. */
   Search(data?: any) {
     const self = this
     return new SearchEntity(self,data)

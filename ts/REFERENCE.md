@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `FreeMovieSDK.test()`.
 ## MovieEntity
 
 ```ts
-const movie = client.Movie()
+const movie = client.movie
 ```
 
 ### Fields
@@ -156,7 +155,7 @@ const movie = client.Movie()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Movie().load({ id: 'movie_id' })
+const result = await client.movie.load({ id: 'movie_id' })
 ```
 
 ### Common Methods
@@ -190,7 +189,7 @@ Return a copy of the entity options.
 ## SearchEntity
 
 ```ts
-const search = client.Search()
+const search = client.search
 ```
 
 ### Fields
@@ -211,7 +210,7 @@ const search = client.Search()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Search().list()
+const results = await client.search.list()
 ```
 
 ### Common Methods

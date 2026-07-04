@@ -15,9 +15,6 @@ module FreeMovieConfig
       },
       "options" => {
         "base" => "https://imdb.iamidiotareyoutoo.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -181,6 +178,7 @@ module FreeMovieConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

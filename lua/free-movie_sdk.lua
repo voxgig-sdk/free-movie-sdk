@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:movie():list() / client:movie():load({ id = ... })
+function FreeMovieSDK:movie(data)
+  local EntityMod = require("entity.movie_entity")
+  if data == nil then
+    if self._movie == nil then
+      self._movie = EntityMod.new(self, nil)
+    end
+    return self._movie
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:movie() instead.
 function FreeMovieSDK:Movie(data)
   local EntityMod = require("entity.movie_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:search():list() / client:search():load({ id = ... })
+function FreeMovieSDK:search(data)
+  local EntityMod = require("entity.search_entity")
+  if data == nil then
+    if self._search == nil then
+      self._search = EntityMod.new(self, nil)
+    end
+    return self._search
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:search() instead.
 function FreeMovieSDK:Search(data)
   local EntityMod = require("entity.search_entity")
   return EntityMod.new(self, data)

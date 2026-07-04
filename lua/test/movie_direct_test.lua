@@ -70,14 +70,12 @@ function movie_direct_setup(mockres)
   local env = runner.env_override({
     ["FREEMOVIE_TEST_MOVIE_ENTID"] = {},
     ["FREEMOVIE_TEST_LIVE"] = "FALSE",
-    ["FREEMOVIE_APIKEY"] = "NONE",
   })
 
   local live = env["FREEMOVIE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["FREEMOVIE_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

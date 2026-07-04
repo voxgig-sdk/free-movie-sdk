@@ -233,10 +233,10 @@ class FreeMovieSDK
 
     private $_movie = null;
 
-    // Idiomatic facade: $client->movie()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Movie() (PHP method
-    // names are case-insensitive).
-    public function movie($data = null)
+    // Canonical facade: $client->Movie()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->movie()
+    // resolves here too.
+    public function Movie($data = null)
     {
         require_once __DIR__ . '/entity/movie_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class FreeMovieSDK
 
     private $_search = null;
 
-    // Idiomatic facade: $client->search()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Search() (PHP method
-    // names are case-insensitive).
-    public function search($data = null)
+    // Canonical facade: $client->Search()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->search()
+    // resolves here too.
+    public function Search($data = null)
     {
         require_once __DIR__ . '/entity/search_entity.php';
         if ($data === null) {

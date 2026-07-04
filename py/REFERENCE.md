@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## MovieEntity
 
 ```python
-movie = client.movie
+movie = client.Movie()
 ```
 
 ### Fields
@@ -118,7 +118,7 @@ movie = client.movie
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.movie.load({"id": "movie_id"})
+result = client.Movie().load({"id": "movie_id"})
 ```
 
 ### Common Methods
@@ -153,7 +153,7 @@ Return the entity name.
 ## SearchEntity
 
 ```python
-search = client.search
+search = client.Search()
 ```
 
 ### Fields
@@ -174,7 +174,9 @@ search = client.search
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.search.list({})
+results = client.Search().list({})
+for search in results:
+    print(search)
 ```
 
 ### Common Methods

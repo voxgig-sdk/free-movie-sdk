@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:movie():list() / client:movie():load({ id = ... })
-function FreeMovieSDK:movie(data)
+-- Idiomatic facade: client:Movie():list() / client:Movie():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FreeMovieSDK:Movie(data)
   local EntityMod = require("entity.movie_entity")
   if data == nil then
     if self._movie == nil then
@@ -256,15 +257,10 @@ function FreeMovieSDK:movie(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:movie() instead.
-function FreeMovieSDK:Movie(data)
-  local EntityMod = require("entity.movie_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:search():list() / client:search():load({ id = ... })
-function FreeMovieSDK:search(data)
+-- Idiomatic facade: client:Search():list() / client:Search():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FreeMovieSDK:Search(data)
   local EntityMod = require("entity.search_entity")
   if data == nil then
     if self._search == nil then
@@ -272,12 +268,6 @@ function FreeMovieSDK:search(data)
     end
     return self._search
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:search() instead.
-function FreeMovieSDK:Search(data)
-  local EntityMod = require("entity.search_entity")
   return EntityMod.new(self, data)
 end
 

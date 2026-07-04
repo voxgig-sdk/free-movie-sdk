@@ -208,26 +208,14 @@ class FreeMovieSDK
   end
 
 
-  # Idiomatic facade: client.movie.list / client.movie.load({ "id" => ... })
-  def movie
-    require_relative 'entity/movie_entity'
-    @movie ||= MovieEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.movie instead.
+  # Canonical facade: client.Movie.list / client.Movie.load({ "id" => ... })
   def Movie(data = nil)
     require_relative 'entity/movie_entity'
     MovieEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.search.list / client.search.load({ "id" => ... })
-  def search
-    require_relative 'entity/search_entity'
-    @search ||= SearchEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.search instead.
+  # Canonical facade: client.Search.list / client.Search.load({ "id" => ... })
   def Search(data = nil)
     require_relative 'entity/search_entity'
     SearchEntity.new(self, data)

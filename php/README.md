@@ -33,9 +33,10 @@ $client = new FreeMovieSDK();
 
 ```php
 try {
-    $result = $client->movie()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Movie record (throws on error).
+    $movie = $client->Movie()->load(["id" => "example_id"]);
+    print_r($movie);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = FreeMovieSDK::test();
+$client = FreeMovieSDK::test([
+    "entity" => ["movie" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->movie()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$movie = $client->Movie()->load(["id" => "test01"]);
+print_r($movie);
 ```
 
 ### Use a custom fetch function
@@ -257,7 +262,7 @@ API path: `/search`
 
 ### Movie
 
-Create an instance: `const movie = client.movie`
+Create an instance: `$movie = $client->Movie();`
 
 #### Operations
 
@@ -291,14 +296,15 @@ Create an instance: `const movie = client.movie`
 
 #### Example: Load
 
-```ts
-const movie = await client.movie.load({ id: 'movie_id' })
+```php
+// load() returns the bare Movie record (throws on error).
+$movie = $client->Movie()->load(["id" => "movie_id"]);
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `$search = $client->Search();`
 
 #### Operations
 
@@ -319,8 +325,9 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```php
+// list() returns an array of Search records (throws on error).
+$searchs = $client->Search()->list();
 ```
 
 
@@ -395,7 +402,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$movie = $client->movie();
+$movie = $client->Movie();
 $movie->load(["id" => "example_id"]);
 
 // $movie->dataGet() now returns the loaded movie data

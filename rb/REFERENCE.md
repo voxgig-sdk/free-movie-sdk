@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## MovieEntity
 
 ```ruby
-movie = client.movie
+movie = client.Movie
 ```
 
 ### Fields
@@ -124,7 +124,7 @@ movie = client.movie
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.movie.load({ "id" => "movie_id" })
+result = client.Movie.load({ "id" => "movie_id" })
 ```
 
 ### Common Methods
@@ -160,7 +160,7 @@ Return the entity name.
 ## SearchEntity
 
 ```ruby
-search = client.search
+search = client.Search
 ```
 
 ### Fields
@@ -181,7 +181,7 @@ search = client.search
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.search.list(nil)
+results = client.Search.list(nil)
 ```
 
 ### Common Methods

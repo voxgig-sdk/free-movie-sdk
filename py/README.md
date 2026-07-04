@@ -33,10 +33,12 @@ client = FreeMovieSDK()
 
 ### 3. Load a movie
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.movie.load({"id": "example_id"})
-    print(result)
+    movie = client.Movie().load({"id": "example_id"})
+    print(movie)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FreeMovieSDK.test()
 
-result = client.movie.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+movie = client.Movie().load({"id": "test01"})
+# movie contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -252,7 +255,7 @@ API path: `/search`
 
 ### Movie
 
-Create an instance: `const movie = client.movie`
+Create an instance: `movie = client.Movie()`
 
 #### Operations
 
@@ -286,14 +289,14 @@ Create an instance: `const movie = client.movie`
 
 #### Example: Load
 
-```ts
-const movie = await client.movie.load({ id: 'movie_id' })
+```python
+movie = client.Movie().load({"id": "movie_id"})
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search()`
 
 #### Operations
 
@@ -314,8 +317,8 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```python
+searchs = client.Search().list({})
 ```
 
 
@@ -389,7 +392,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-movie = client.movie
+movie = client.Movie()
 movie.load({"id": "example_id"})
 
 # movie.data_get() now returns the loaded movie data

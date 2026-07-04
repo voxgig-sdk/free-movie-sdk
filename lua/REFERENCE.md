@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## MovieEntity
 
 ```lua
-local movie = client:movie(nil)
+local movie = client:Movie(nil)
 ```
 
 ### Fields
@@ -121,7 +121,7 @@ local movie = client:movie(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:movie():load({ id = "movie_id" })
+local result, err = client:Movie():load({ id = "movie_id" })
 ```
 
 ### Common Methods
@@ -157,7 +157,7 @@ Return the entity name.
 ## SearchEntity
 
 ```lua
-local search = client:search(nil)
+local search = client:Search(nil)
 ```
 
 ### Fields
@@ -178,7 +178,7 @@ local search = client:search(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:search():list()
+local results, err = client:Search():list()
 ```
 
 ### Common Methods

@@ -220,41 +220,21 @@ class FreeMovieSDK:
         }
 
 
-    @property
-    def movie(self):
-        """Idiomatic facade: client.movie.list() / client.movie.load({"id": ...})."""
-        from entity.movie_entity import MovieEntity
-        cached = getattr(self, "_movie", None)
-        if cached is None:
-            cached = MovieEntity(self, None)
-            self._movie = cached
-        return cached
-
-    def Movie(self, data=None):
-        # Deprecated: use client.movie instead.
+    def Movie(self, data=None) -> "MovieEntity":
+        """Entity factory: client.Movie().list({}) / client.Movie().load({"id": ...})."""
         from entity.movie_entity import MovieEntity
         return MovieEntity(self, data)
 
 
-    @property
-    def search(self):
-        """Idiomatic facade: client.search.list() / client.search.load({"id": ...})."""
-        from entity.search_entity import SearchEntity
-        cached = getattr(self, "_search", None)
-        if cached is None:
-            cached = SearchEntity(self, None)
-            self._search = cached
-        return cached
-
-    def Search(self, data=None):
-        # Deprecated: use client.search instead.
+    def Search(self, data=None) -> "SearchEntity":
+        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "FreeMovieSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class FreeMovieSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.movie_entity import MovieEntity
+    from entity.search_entity import SearchEntity

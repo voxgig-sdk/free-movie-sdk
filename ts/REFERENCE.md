@@ -121,7 +121,7 @@ Alias for `FreeMovieSDK.test()`.
 ## MovieEntity
 
 ```ts
-const movie = client.movie
+const movie = client.Movie()
 ```
 
 ### Fields
@@ -155,7 +155,7 @@ const movie = client.movie
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.movie.load({ id: 'movie_id' })
+const result = await client.Movie().load({ id: 'movie_id' })
 ```
 
 ### Common Methods
@@ -189,7 +189,7 @@ Return a copy of the entity options.
 ## SearchEntity
 
 ```ts
-const search = client.search
+const search = client.Search()
 ```
 
 ### Fields
@@ -210,7 +210,7 @@ const search = client.search
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.search.list()
+const results = await client.Search().list()
 ```
 
 ### Common Methods

@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## MovieEntity
 
 ```php
-$movie = $client->movie();
+$movie = $client->Movie();
 ```
 
 ### Fields
@@ -123,7 +123,7 @@ $movie = $client->movie();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->movie()->load(["id" => "movie_id"]);
+$result = $client->Movie()->load(["id" => "movie_id"]);
 ```
 
 ### Common Methods
@@ -159,7 +159,7 @@ Return the entity name.
 ## SearchEntity
 
 ```php
-$search = $client->search();
+$search = $client->Search();
 ```
 
 ### Fields
@@ -180,7 +180,7 @@ $search = $client->search();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->search()->list([]);
+$results = $client->Search()->list([]);
 ```
 
 ### Common Methods

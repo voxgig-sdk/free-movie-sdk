@@ -26,9 +26,9 @@ import { FreeMovieSDK } from '@voxgig-sdk/free-movie'
 
 const client = new FreeMovieSDK()
 
-// Load movie data
-const movie = await client.movie.load({})
-console.log(movie.data)
+// Load movie data (returns a Movie)
+const movie = await client.Movie().load()
+console.log(movie)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,8 +85,8 @@ from freemovie_sdk import FreeMovieSDK
 client = FreeMovieSDK()
 
 
-# Load a specific movie
-movie = client.movie.load({"id": "example_id"})
+# Load a specific movie (returns the record, raises on error)
+movie = client.Movie().load({"id": "example_id"})
 print(movie)
 ```
 
@@ -99,8 +99,8 @@ require_once 'freemovie_sdk.php';
 $client = new FreeMovieSDK();
 
 
-// Load a specific movie
-$movie = $client->movie()->load(["id" => "example_id"]);
+// Load a specific movie (returns the bare record; throws on error)
+$movie = $client->Movie()->load(["id" => "example_id"]);
 print_r($movie);
 ```
 
@@ -124,8 +124,8 @@ require_relative "FreeMovie_sdk"
 client = FreeMovieSDK.new
 
 
-# Load a specific movie
-movie = client.movie.load({ "id" => "example_id" })
+# Load a specific movie (returns the bare record; raises on error)
+movie = client.Movie.load({ "id" => "example_id" })
 puts movie
 ```
 
@@ -138,7 +138,7 @@ local client = sdk.new()
 
 
 -- Load a specific movie
-local movie, err = client:movie():load({ id = "example_id" })
+local movie, err = client:Movie():load({ id = "example_id" })
 print(movie)
 ```
 
@@ -151,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = FreeMovieSDK.test()
-const result = await client.movie.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const movie = await client.Movie().load({ id: 'test01' })
+// movie is a bare Movie populated with mock data
+console.log(movie)
 ```
 
 ### Python
 
 ```python
 client = FreeMovieSDK.test()
-result = client.movie.load({"id": "test01"})
+movie = client.Movie().load({"id": "test01"})
+print(movie)
 ```
 
 ### PHP
 
 ```php
-$client = FreeMovieSDK::test();
-$result = $client->movie()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = FreeMovieSDK::test([
+    "entity" => ["movie" => ["test01" => ["id" => "test01"]]],
+]);
+$movie = $client->Movie()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -181,15 +186,18 @@ result, err := client.Movie(nil).Load(
 ### Ruby
 
 ```ruby
-client = FreeMovieSDK.test
-result = client.movie.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = FreeMovieSDK.test({
+  "entity" => { "movie" => { "test01" => { "id" => "test01" } } },
+})
+movie = client.Movie.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:movie():load({ id = "test01" })
+local result, err = client:Movie():load({ id = "test01" })
 ```
 
 ## How it works
@@ -237,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -221,13 +221,13 @@ class FreeMovieSDK:
 
 
     def Movie(self, data=None) -> "MovieEntity":
-        """Entity factory: client.Movie().list({}) / client.Movie().load({"id": ...})."""
+        """Entity factory: client.Movie().list() / client.Movie().load({"id": ...})."""
         from entity.movie_entity import MovieEntity
         return MovieEntity(self, data)
 
 
     def Search(self, data=None) -> "SearchEntity":
-        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
+        """Entity factory: client.Search().list() / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 

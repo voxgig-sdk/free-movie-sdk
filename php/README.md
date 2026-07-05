@@ -4,6 +4,8 @@
 
 The PHP SDK for the FreeMovie API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->Movie()` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -42,6 +44,37 @@ try {
 ```
 
 
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $movie = $client->Movie()->load(["id" => "example_id"]);
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
+}
+```
+
+
 ## How-to guides
 
 ### Make a direct HTTP request
@@ -61,7 +94,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -90,7 +126,7 @@ $client = FreeMovieSDK::test([
     "entity" => ["movie" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// load() returns the bare mock record (throws on error).
+// Entity ops return the bare mock record (throws on error).
 $movie = $client->Movie()->load(["id" => "test01"]);
 print_r($movie);
 ```
@@ -181,10 +217,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
-| `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
+| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -274,25 +307,25 @@ Create an instance: `$movie = $client->Movie();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `actor` | ``$STRING`` |  |
-| `award` | ``$STRING`` |  |
-| `box_office` | ``$STRING`` |  |
-| `country` | ``$STRING`` |  |
-| `director` | ``$STRING`` |  |
-| `genre` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `language` | ``$STRING`` |  |
-| `plot` | ``$STRING`` |  |
-| `poster` | ``$STRING`` |  |
-| `rated` | ``$STRING`` |  |
-| `rating` | ``$NUMBER`` |  |
-| `released` | ``$STRING`` |  |
-| `runtime` | ``$STRING`` |  |
-| `title` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
-| `vote` | ``$STRING`` |  |
-| `writer` | ``$STRING`` |  |
-| `year` | ``$STRING`` |  |
+| `actor` | `string` |  |
+| `award` | `string` |  |
+| `box_office` | `string` |  |
+| `country` | `string` |  |
+| `director` | `string` |  |
+| `genre` | `string` |  |
+| `id` | `string` |  |
+| `language` | `string` |  |
+| `plot` | `string` |  |
+| `poster` | `string` |  |
+| `rated` | `string` |  |
+| `rating` | `float` |  |
+| `released` | `string` |  |
+| `runtime` | `string` |  |
+| `title` | `string` |  |
+| `type` | `string` |  |
+| `vote` | `string` |  |
+| `writer` | `string` |  |
+| `year` | `string` |  |
 
 #### Example: Load
 
@@ -316,12 +349,12 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | ``$STRING`` |  |
-| `poster` | ``$STRING`` |  |
-| `rating` | ``$NUMBER`` |  |
-| `title` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
-| `year` | ``$STRING`` |  |
+| `id` | `string` |  |
+| `poster` | `string` |  |
+| `rating` | `float` |  |
+| `title` | `string` |  |
+| `type` | `string` |  |
+| `year` | `string` |  |
 
 #### Example: List
 
@@ -331,12 +364,16 @@ $searchs = $client->Search()->list();
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -353,8 +390,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -405,8 +443,8 @@ stores the returned data and match criteria internally.
 $movie = $client->Movie();
 $movie->load(["id" => "example_id"]);
 
-// $movie->dataGet() now returns the loaded movie data
-// $movie->matchGet() returns the last match criteria
+// $movie->data_get() now returns the movie data from the last load
+// $movie->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

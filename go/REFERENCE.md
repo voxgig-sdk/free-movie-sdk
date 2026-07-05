@@ -101,25 +101,25 @@ movie := client.Movie(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actor` | ``$STRING`` | No |  |
-| `award` | ``$STRING`` | No |  |
-| `box_office` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `plot` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rated` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `runtime` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `vote` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `actor` | `string` | No |  |
+| `award` | `string` | No |  |
+| `box_office` | `string` | No |  |
+| `country` | `string` | No |  |
+| `director` | `string` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `language` | `string` | No |  |
+| `plot` | `string` | No |  |
+| `poster` | `string` | No |  |
+| `rated` | `string` | No |  |
+| `rating` | `float64` | No |  |
+| `released` | `string` | No |  |
+| `runtime` | `string` | No |  |
+| `title` | `string` | No |  |
+| `type` | `string` | No |  |
+| `vote` | `string` | No |  |
+| `writer` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
@@ -165,12 +165,12 @@ search := client.Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `id` | `string` | No |  |
+| `poster` | `string` | No |  |
+| `rating` | `float64` | No |  |
+| `title` | `string` | No |  |
+| `type` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 

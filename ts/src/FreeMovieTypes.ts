@@ -40,5 +40,12 @@ export interface Search {
   year?: string
 }
 
-export type SearchListMatch = Partial<Search>
+export interface SearchListMatch {
+  id?: string
+  poster?: string
+  rating?: number
+  title?: string
+  type?: string
+  year?: string
+}
 

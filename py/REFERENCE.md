@@ -8,7 +8,7 @@ Complete API reference for the FreeMovie Python SDK.
 ### Constructor
 
 ```python
-from free-movie_sdk import FreeMovieSDK
+from freemovie_sdk import FreeMovieSDK
 
 client = FreeMovieSDK(options)
 ```
@@ -91,25 +91,25 @@ movie = client.Movie()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actor` | ``$STRING`` | No |  |
-| `award` | ``$STRING`` | No |  |
-| `box_office` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `plot` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rated` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `runtime` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `vote` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `actor` | `str` | No |  |
+| `award` | `str` | No |  |
+| `box_office` | `str` | No |  |
+| `country` | `str` | No |  |
+| `director` | `str` | No |  |
+| `genre` | `str` | No |  |
+| `id` | `str` | No |  |
+| `language` | `str` | No |  |
+| `plot` | `str` | No |  |
+| `poster` | `str` | No |  |
+| `rated` | `str` | No |  |
+| `rating` | `float` | No |  |
+| `released` | `str` | No |  |
+| `runtime` | `str` | No |  |
+| `title` | `str` | No |  |
+| `type` | `str` | No |  |
+| `vote` | `str` | No |  |
+| `writer` | `str` | No |  |
+| `year` | `str` | No |  |
 
 ### Operations
 
@@ -160,21 +160,21 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `id` | `str` | No |  |
+| `poster` | `str` | No |  |
+| `rating` | `float` | No |  |
+| `title` | `str` | No |  |
+| `type` | `str` | No |  |
+| `year` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Search().list({})
+results = client.Search().list()
 for search in results:
     print(search)
 ```

@@ -53,7 +53,7 @@ class Search
     public ?string $year = null;
 }
 
-/** Match filter for Search#list (any subset of Search fields). */
+/** Request payload for Search#list. */
 class SearchListMatch
 {
     public ?string $id = null;

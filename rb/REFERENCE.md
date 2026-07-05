@@ -8,7 +8,7 @@ Complete API reference for the FreeMovie Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'free-movie_sdk'
+require_relative 'FreeMovie_sdk'
 
 client = FreeMovieSDK.new(options)
 ```
@@ -97,25 +97,25 @@ movie = client.Movie
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actor` | ``$STRING`` | No |  |
-| `award` | ``$STRING`` | No |  |
-| `box_office` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `plot` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rated` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `runtime` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `vote` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `actor` | `String` | No |  |
+| `award` | `String` | No |  |
+| `box_office` | `String` | No |  |
+| `country` | `String` | No |  |
+| `director` | `String` | No |  |
+| `genre` | `String` | No |  |
+| `id` | `String` | No |  |
+| `language` | `String` | No |  |
+| `plot` | `String` | No |  |
+| `poster` | `String` | No |  |
+| `rated` | `String` | No |  |
+| `rating` | `Float` | No |  |
+| `released` | `String` | No |  |
+| `runtime` | `String` | No |  |
+| `title` | `String` | No |  |
+| `type` | `String` | No |  |
+| `vote` | `String` | No |  |
+| `writer` | `String` | No |  |
+| `year` | `String` | No |  |
 
 ### Operations
 
@@ -167,21 +167,21 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `id` | `String` | No |  |
+| `poster` | `String` | No |  |
+| `rating` | `Float` | No |  |
+| `title` | `String` | No |  |
+| `type` | `String` | No |  |
+| `year` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Search.list(nil)
+results = client.Search.list
 ```
 
 ### Common Methods

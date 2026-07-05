@@ -8,7 +8,7 @@ Complete API reference for the FreeMovie PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/free-movie_sdk.php';
+require_once __DIR__ . '/freemovie_sdk.php';
 
 $client = new FreeMovieSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `MovieEntity` instance. Pass `null` for no initial data.
 
 Create a new `SearchEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): FreeMovieUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,25 +96,25 @@ $movie = $client->Movie();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actor` | ``$STRING`` | No |  |
-| `award` | ``$STRING`` | No |  |
-| `box_office` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `plot` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rated` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `runtime` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `vote` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `actor` | `string` | No |  |
+| `award` | `string` | No |  |
+| `box_office` | `string` | No |  |
+| `country` | `string` | No |  |
+| `director` | `string` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `language` | `string` | No |  |
+| `plot` | `string` | No |  |
+| `poster` | `string` | No |  |
+| `rated` | `string` | No |  |
+| `rating` | `float` | No |  |
+| `released` | `string` | No |  |
+| `runtime` | `string` | No |  |
+| `title` | `string` | No |  |
+| `type` | `string` | No |  |
+| `vote` | `string` | No |  |
+| `writer` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
@@ -128,19 +128,19 @@ $result = $client->Movie()->load(["id" => "movie_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -149,7 +149,7 @@ Set the entity match criteria.
 Create a new `MovieEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -166,38 +166,38 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `id` | `string` | No |  |
+| `poster` | `string` | No |  |
+| `rating` | `float` | No |  |
+| `title` | `string` | No |  |
+| `type` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Search()->list([]);
+$results = $client->Search()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -206,7 +206,7 @@ Set the entity match criteria.
 Create a new `SearchEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

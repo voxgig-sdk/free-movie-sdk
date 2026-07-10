@@ -19,9 +19,9 @@ main: {
           url: "https://imdb.iamidiotareyoutoo.com"
         }
       ]
+      summary: "This API provides access to a wide range of movie and series information without requiring API keys."
       title: "Free Movie API"
       version: "1.0.0"
+      website: "https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API"
     }
   }
-}
-

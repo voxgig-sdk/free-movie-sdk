@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single movie — the value is the loaded record.
-    movie, err := client.Movie(nil).Load(map[string]any{"id": "example"}, nil)
+    movie, err := client.Movie(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

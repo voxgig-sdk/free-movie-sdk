@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- FreeMovie SDK exists test
 
 local sdk = require("free-movie_sdk")
 

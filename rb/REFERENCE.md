@@ -97,9 +97,9 @@ movie = client.Movie
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actor` | `String` | No |  |
-| `award` | `String` | No |  |
-| `box_office` | `String` | No |  |
+| `actors` | `String` | No |  |
+| `awards` | `String` | No |  |
+| `boxOffice` | `String` | No |  |
 | `country` | `String` | No |  |
 | `director` | `String` | No |  |
 | `genre` | `String` | No |  |
@@ -113,7 +113,7 @@ movie = client.Movie
 | `runtime` | `String` | No |  |
 | `title` | `String` | No |  |
 | `type` | `String` | No |  |
-| `vote` | `String` | No |  |
+| `votes` | `String` | No |  |
 | `writer` | `String` | No |  |
 | `year` | `String` | No |  |
 

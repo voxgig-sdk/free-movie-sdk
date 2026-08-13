@@ -228,9 +228,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `actor` |  |
-| `award` |  |
-| `box_office` |  |
+| `actors` |  |
+| `awards` |  |
+| `boxOffice` |  |
 | `country` |  |
 | `director` |  |
 | `genre` |  |
@@ -244,7 +244,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `runtime` |  |
 | `title` |  |
 | `type` |  |
-| `vote` |  |
+| `votes` |  |
 | `writer` |  |
 | `year` |  |
 
@@ -286,9 +286,9 @@ Create an instance: `local movie = client:Movie(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `actor` | `string` |  |
-| `award` | `string` |  |
-| `box_office` | `string` |  |
+| `actors` | `string` |  |
+| `awards` | `string` |  |
+| `boxOffice` | `string` |  |
 | `country` | `string` |  |
 | `director` | `string` |  |
 | `genre` | `string` |  |
@@ -302,7 +302,7 @@ Create an instance: `local movie = client:Movie(nil)`
 | `runtime` | `string` |  |
 | `title` | `string` |  |
 | `type` | `string` |  |
-| `vote` | `string` |  |
+| `votes` | `string` |  |
 | `writer` | `string` |  |
 | `year` | `string` |  |
 

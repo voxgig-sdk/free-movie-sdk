@@ -91,9 +91,9 @@ movie = client.Movie()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actor` | `str` | No |  |
-| `award` | `str` | No |  |
-| `box_office` | `str` | No |  |
+| `actors` | `str` | No |  |
+| `awards` | `str` | No |  |
+| `boxOffice` | `str` | No |  |
 | `country` | `str` | No |  |
 | `director` | `str` | No |  |
 | `genre` | `str` | No |  |
@@ -107,7 +107,7 @@ movie = client.Movie()
 | `runtime` | `str` | No |  |
 | `title` | `str` | No |  |
 | `type` | `str` | No |  |
-| `vote` | `str` | No |  |
+| `votes` | `str` | No |  |
 | `writer` | `str` | No |  |
 | `year` | `str` | No |  |
 

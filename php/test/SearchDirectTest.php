@@ -66,11 +66,11 @@ function search_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "FREEMOVIE_TEST_SEARCH_ENTID" => [],
-        "FREEMOVIE_TEST_LIVE" => "FALSE",
+        "FREE_MOVIE_TEST_SEARCH_ENTID" => [],
+        "FREE_MOVIE_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["FREEMOVIE_TEST_LIVE"] === "TRUE";
+    $live = $env["FREE_MOVIE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

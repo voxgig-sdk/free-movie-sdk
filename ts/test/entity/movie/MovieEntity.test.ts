@@ -26,8 +26,8 @@ import {
 describe('MovieEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FREEMOVIE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FREEMOVIE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FREE_MOVIE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FREE_MOVIE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = FreeMovieSDK.test()
@@ -63,7 +63,7 @@ describe('MovieEntity', async () => {
     const movie_ref01_ent = client.Movie()
     const movie_ref01_match_dt0: any = {}
     movie_ref01_match_dt0.id = movie_ref01_data.id
-    const movie_ref01_data_dt0 = await movie_ref01_ent.load(movie_ref01_match_dt0)
+    const movie_ref01_data_dt0 = (await movie_ref01_ent.load(movie_ref01_match_dt0)).data()
     assert(movie_ref01_data_dt0.id === movie_ref01_data.id)
 
 

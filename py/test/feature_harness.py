@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FreeMovieControl
-from core.error import FreeMovieError
-from core.result import FreeMovieResult
-from core.spec import FreeMovieSpec
+from freemovie_sdk.config import make_config
+from freemovie_sdk.features import _make_feature
+from freemovie_sdk.core.control import FreeMovieControl
+from freemovie_sdk.core.error import FreeMovieError
+from freemovie_sdk.core.result import FreeMovieResult
+from freemovie_sdk.core.spec import FreeMovieSpec
 
 
 # True when this SDK was generated with the named feature.

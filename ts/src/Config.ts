@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'FreeMovie',
   }
 
 
@@ -59,21 +59,21 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "actor",
+          "name": "actors",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "award",
+          "name": "awards",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "box_office",
+          "name": "boxOffice",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -171,7 +171,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "vote",
+          "name": "votes",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
@@ -213,6 +213,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/movie/{id}",
               "parts": [
@@ -322,6 +323,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/search",
               "parts": [
@@ -336,7 +338,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 0
             }

@@ -16,11 +16,11 @@
 import pytest
 
 from freemovie_sdk import FreeMovieSDK
-from core.error import FreeMovieError
-from core.result import FreeMovieResult
-from core.response import FreeMovieResponse
-from core.spec import FreeMovieSpec
-from feature.base_feature import FreeMovieBaseFeature
+from freemovie_sdk.core.error import FreeMovieError
+from freemovie_sdk.core.result import FreeMovieResult
+from freemovie_sdk.core.response import FreeMovieResponse
+from freemovie_sdk.core.spec import FreeMovieSpec
+from freemovie_sdk.feature.base_feature import FreeMovieBaseFeature
 
 
 def _client():

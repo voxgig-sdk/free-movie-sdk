@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = FreeMovieSDK.test()
 
 const movie = await client.Movie().load({ id: 'test01' })
-// movie is a bare entity populated with mock response data
+// movie is the entity, populated with mock response data
+// — call movie.data() for the record itself
 console.log(movie)
 ```
 
@@ -288,9 +289,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `actor` |  |
-| `award` |  |
-| `box_office` |  |
+| `actors` |  |
+| `awards` |  |
+| `boxOffice` |  |
 | `country` |  |
 | `director` |  |
 | `genre` |  |
@@ -304,7 +305,7 @@ The `prepare()` method returns:
 | `runtime` |  |
 | `title` |  |
 | `type` |  |
-| `vote` |  |
+| `votes` |  |
 | `writer` |  |
 | `year` |  |
 
@@ -346,9 +347,9 @@ Create an instance: `const movie = client.Movie()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `actor` | `string` |  |
-| `award` | `string` |  |
-| `box_office` | `string` |  |
+| `actors` | `string` |  |
+| `awards` | `string` |  |
+| `boxOffice` | `string` |  |
 | `country` | `string` |  |
 | `director` | `string` |  |
 | `genre` | `string` |  |
@@ -362,7 +363,7 @@ Create an instance: `const movie = client.Movie()`
 | `runtime` | `string` |  |
 | `title` | `string` |  |
 | `type` | `string` |  |
-| `vote` | `string` |  |
+| `votes` | `string` |  |
 | `writer` | `string` |  |
 | `year` | `string` |  |
 

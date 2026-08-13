@@ -6,9 +6,9 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Movie {
-  actor?: string
-  award?: string
-  box_office?: string
+  actors?: string
+  awards?: string
+  boxOffice?: string
   country?: string
   director?: string
   genre?: string
@@ -22,7 +22,7 @@ export interface Movie {
   runtime?: string
   title?: string
   type?: string
-  vote?: string
+  votes?: string
   writer?: string
   year?: string
 }

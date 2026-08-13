@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FreeMovieUtility.registrar = ->(u) {
   u.prepare_params = FreeMovieUtilities::PrepareParams
   u.prepare_path = FreeMovieUtilities::PreparePath
   u.prepare_query = FreeMovieUtilities::PrepareQuery
+  u.graphql_body = FreeMovieUtilities::GraphqlBody
+  u.graphql_errors = FreeMovieUtilities::GraphqlErrors
   u.result_basic = FreeMovieUtilities::ResultBasic
   u.result_body = FreeMovieUtilities::ResultBody
   u.result_headers = FreeMovieUtilities::ResultHeaders

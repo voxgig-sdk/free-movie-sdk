@@ -94,9 +94,9 @@ local movie = client:Movie(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actor` | `string` | No |  |
-| `award` | `string` | No |  |
-| `box_office` | `string` | No |  |
+| `actors` | `string` | No |  |
+| `awards` | `string` | No |  |
+| `boxOffice` | `string` | No |  |
 | `country` | `string` | No |  |
 | `director` | `string` | No |  |
 | `genre` | `string` | No |  |
@@ -110,7 +110,7 @@ local movie = client:Movie(nil)
 | `runtime` | `string` | No |  |
 | `title` | `string` | No |  |
 | `type` | `string` | No |  |
-| `vote` | `string` | No |  |
+| `votes` | `string` | No |  |
 | `writer` | `string` | No |  |
 | `year` | `string` | No |  |
 

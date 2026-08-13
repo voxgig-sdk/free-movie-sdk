@@ -15,9 +15,9 @@ declare(strict_types=1);
 /** Movie entity data model. */
 class Movie
 {
-    public ?string $actor = null;
-    public ?string $award = null;
-    public ?string $box_office = null;
+    public ?string $actors = null;
+    public ?string $awards = null;
+    public ?string $boxOffice = null;
     public ?string $country = null;
     public ?string $director = null;
     public ?string $genre = null;
@@ -31,7 +31,7 @@ class Movie
     public ?string $runtime = null;
     public ?string $title = null;
     public ?string $type = null;
-    public ?string $vote = null;
+    public ?string $votes = null;
     public ?string $writer = null;
     public ?string $year = null;
 }

@@ -19,11 +19,15 @@ import {
 describe('MovieDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FREEMOVIE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FREEMOVIE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FREE_MOVIE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FREE_MOVIE_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new FreeMovieSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'FREEMOVIE_TEST_MOVIE_ENTID': {},
-    'FREEMOVIE_TEST_LIVE': 'FALSE',
+    'FREE_MOVIE_TEST_MOVIE_ENTID': {},
+    'FREE_MOVIE_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.FREEMOVIE_TEST_LIVE
+  const live = 'TRUE' === env.FREE_MOVIE_TEST_LIVE
 
   if (live) {
     const client = new FreeMovieSDK({
     })
 
-    let idmap: any = env['FREEMOVIE_TEST_MOVIE_ENTID']
+    let idmap: any = env['FREE_MOVIE_TEST_MOVIE_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

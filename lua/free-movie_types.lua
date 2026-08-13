@@ -7,9 +7,9 @@
 -- edit by hand.
 
 ---@class Movie
----@field actor? string
----@field award? string
----@field box_office? string
+---@field actors? string
+---@field awards? string
+---@field boxOffice? string
 ---@field country? string
 ---@field director? string
 ---@field genre? string
@@ -23,7 +23,7 @@
 ---@field runtime? string
 ---@field title? string
 ---@field type? string
----@field vote? string
+---@field votes? string
 ---@field writer? string
 ---@field year? string
 

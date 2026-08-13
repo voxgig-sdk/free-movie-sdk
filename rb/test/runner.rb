@@ -23,8 +23,8 @@ module FreeMovieTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("FREEMOVIE_TEST_LIVE")
-    override = getenv("FREEMOVIE_TEST_OVERRIDE")
+    live = getenv("FREE_MOVIE_TEST_LIVE")
+    override = getenv("FREE_MOVIE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module FreeMovieTestRunner
       end
     end
 
-    explain = getenv("FREEMOVIE_TEST_EXPLAIN")
-    m["FREEMOVIE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("FREE_MOVIE_TEST_EXPLAIN")
+    m["FREE_MOVIE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# FreeMovie SDK exists test
 
 import pytest
 from freemovie_sdk import FreeMovieSDK

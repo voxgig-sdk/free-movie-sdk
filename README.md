@@ -23,7 +23,7 @@ support (`list`, `load`):
 
 ```ts
 const client = new FreeMovieSDK()
-const movie = await client.Movie().load()
+const movie = await client.Movie().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = FreeMovieSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = FreeMovieSDK.test({
+  entity: {
+    movie: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const movie = await client.Movie().load({ id: 'test01' })
-// movie is a bare Movie populated with mock data
+// movie is the Movie entity, populated with mock data
+// — call movie.data() for the record itself
 console.log(movie)
 ```
 
@@ -183,7 +192,7 @@ require_once 'freemovie_sdk.php';
 $client = new FreeMovieSDK();
 
 
-// Load a specific movie (returns the bare record; throws on error)
+// Load a specific movie (returns the ENTITY; call data_get() for the record; throws on error)
 $movie = $client->Movie()->load(["id" => "example_id"]);
 print_r($movie);
 ```
@@ -211,7 +220,7 @@ require_relative "FreeMovie_sdk"
 client = FreeMovieSDK.new
 
 
-# Load a specific movie (returns the bare record; raises on error)
+# Load a specific movie (returns the ENTITY; call data_get for the record)
 movie = client.Movie.load({ "id" => "example_id" })
 puts movie
 ```
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API/issues](https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API/issues)
 

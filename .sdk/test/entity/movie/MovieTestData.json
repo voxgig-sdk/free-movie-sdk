@@ -2,9 +2,9 @@
   "existing": {
     "movie": {
       "MOVIE00": {
-        "actor": "sbe",
-        "award": "sbf",
-        "box_office": "sc0",
+        "actors": "sbe",
+        "awards": "sbf",
+        "boxOffice": "sc0",
         "country": "sc1",
         "director": "sc2",
         "genre": "sc3",
@@ -18,14 +18,14 @@
         "runtime": "scb",
         "title": "scc",
         "type": "scd",
-        "vote": "sce",
+        "votes": "sce",
         "writer": "scf",
         "year": "sd0"
       },
       "MOVIE01": {
-        "actor": "s17c",
-        "award": "s17d",
-        "box_office": "s17e",
+        "actors": "s17c",
+        "awards": "s17d",
+        "boxOffice": "s17e",
         "country": "s17f",
         "director": "s180",
         "genre": "s181",
@@ -39,14 +39,14 @@
         "runtime": "s189",
         "title": "s18a",
         "type": "s18b",
-        "vote": "s18c",
+        "votes": "s18c",
         "writer": "s18d",
         "year": "s18e"
       },
       "MOVIE02": {
-        "actor": "s23a",
-        "award": "s23b",
-        "box_office": "s23c",
+        "actors": "s23a",
+        "awards": "s23b",
+        "boxOffice": "s23c",
         "country": "s23d",
         "director": "s23e",
         "genre": "s23f",
@@ -60,7 +60,7 @@
         "runtime": "s247",
         "title": "s248",
         "type": "s249",
-        "vote": "s24a",
+        "votes": "s24a",
         "writer": "s24b",
         "year": "s24c"
       }
@@ -69,9 +69,9 @@
   "new": {
     "movie": {
       "movie_ref01": {
-        "actor": "s2f8",
-        "award": "s2f9",
-        "box_office": "s2fa",
+        "actors": "s2f8",
+        "awards": "s2f9",
+        "boxOffice": "s2fa",
         "country": "s2fb",
         "director": "s2fc",
         "genre": "s2fd",
@@ -84,7 +84,7 @@
         "runtime": "s305",
         "title": "s306",
         "type": "s307",
-        "vote": "s308",
+        "votes": "s308",
         "writer": "s309",
         "year": "s30a"
       }

@@ -6,17 +6,17 @@ main: kit: entity: movie: {
 
   fields: [
     {
-      name: "actor"
+      name: "actors"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "award"
+      name: "awards"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "box_office"
+      name: "boxOffice"
       req: false
       type: "`$STRING`"
     }
@@ -86,7 +86,7 @@ main: kit: entity: movie: {
       type: "`$STRING`"
     }
     {
-      name: "vote"
+      name: "votes"
       req: false
       type: "`$STRING`"
     }

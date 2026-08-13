@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from freemovie_sdk.utility.voxgig_struct import voxgig_struct as vs
 from freemovie_sdk import FreeMovieSDK
-from core import helpers
+from freemovie_sdk.core import helpers
 from test import runner
 
 
@@ -63,11 +63,11 @@ def _movie_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "FREEMOVIE_TEST_MOVIE_ENTID": {},
-        "FREEMOVIE_TEST_LIVE": "FALSE",
+        "FREE_MOVIE_TEST_MOVIE_ENTID": {},
+        "FREE_MOVIE_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("FREEMOVIE_TEST_LIVE") == "TRUE"
+    live = env.get("FREE_MOVIE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

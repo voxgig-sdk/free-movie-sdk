@@ -34,7 +34,7 @@ client = FreeMovieSDK.new
 
 ```ruby
 begin
-  # load returns the bare Movie record (raises on error).
+  # load returns the ENTITY — call data_get for the Movie record (raises on error).
   movie = client.Movie.load({ "id" => "example_id" })
   puts movie
 rescue => err
@@ -120,7 +120,8 @@ client = FreeMovieSDK.test({
   "entity" => { "movie" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 movie = client.Movie.load({ "id" => "test01" })
 puts movie
 ```
@@ -239,9 +240,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `actor` |  |
-| `award` |  |
-| `box_office` |  |
+| `actors` |  |
+| `awards` |  |
+| `boxOffice` |  |
 | `country` |  |
 | `director` |  |
 | `genre` |  |
@@ -255,7 +256,7 @@ returns a result `Hash` with these keys:
 | `runtime` |  |
 | `title` |  |
 | `type` |  |
-| `vote` |  |
+| `votes` |  |
 | `writer` |  |
 | `year` |  |
 
@@ -297,9 +298,9 @@ Create an instance: `movie = client.Movie`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `actor` | `String` |  |
-| `award` | `String` |  |
-| `box_office` | `String` |  |
+| `actors` | `String` |  |
+| `awards` | `String` |  |
+| `boxOffice` | `String` |  |
 | `country` | `String` |  |
 | `director` | `String` |  |
 | `genre` | `String` |  |
@@ -313,14 +314,14 @@ Create an instance: `movie = client.Movie`
 | `runtime` | `String` |  |
 | `title` | `String` |  |
 | `type` | `String` |  |
-| `vote` | `String` |  |
+| `votes` | `String` |  |
 | `writer` | `String` |  |
 | `year` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Movie record (raises on error).
+# load returns the ENTITY — call data_get for the Movie record (raises on error).
 movie = client.Movie.load({ "id" => "movie_id" })
 ```
 

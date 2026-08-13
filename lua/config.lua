@@ -27,21 +27,21 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "actor",
+            ["name"] = "actors",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "award",
+            ["name"] = "awards",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
           },
           {
             ["active"] = true,
-            ["name"] = "box_office",
+            ["name"] = "boxOffice",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -139,7 +139,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "vote",
+            ["name"] = "votes",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 16,
@@ -181,6 +181,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/movie/{id}",
                 ["parts"] = {
@@ -290,6 +291,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/search",
                 ["parts"] = {
@@ -304,7 +306,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.results`",
                 },
                 ["index$"] = 0,
               },

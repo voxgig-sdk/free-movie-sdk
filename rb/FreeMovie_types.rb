@@ -10,13 +10,13 @@
 
 # Movie entity data model.
 #
-# @!attribute [rw] actor
+# @!attribute [rw] actors
 #   @return [String, nil]
 #
-# @!attribute [rw] award
+# @!attribute [rw] awards
 #   @return [String, nil]
 #
-# @!attribute [rw] box_office
+# @!attribute [rw] boxOffice
 #   @return [String, nil]
 #
 # @!attribute [rw] country
@@ -58,7 +58,7 @@
 # @!attribute [rw] type
 #   @return [String, nil]
 #
-# @!attribute [rw] vote
+# @!attribute [rw] votes
 #   @return [String, nil]
 #
 # @!attribute [rw] writer
@@ -67,9 +67,9 @@
 # @!attribute [rw] year
 #   @return [String, nil]
 Movie = Struct.new(
-  :actor,
-  :award,
-  :box_office,
+  :actors,
+  :awards,
+  :boxOffice,
   :country,
   :director,
   :genre,
@@ -83,7 +83,7 @@ Movie = Struct.new(
   :runtime,
   :title,
   :type,
-  :vote,
+  :votes,
   :writer,
   :year,
   keyword_init: true

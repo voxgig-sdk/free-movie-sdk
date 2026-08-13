@@ -43,8 +43,8 @@ class FreeMovieTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('FREEMOVIE_TEST_LIVE');
-        $override = self::getenv('FREEMOVIE_TEST_OVERRIDE');
+        $live = self::getenv('FREE_MOVIE_TEST_LIVE');
+        $override = self::getenv('FREE_MOVIE_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class FreeMovieTestRunner
             }
         }
 
-        $explain = self::getenv('FREEMOVIE_TEST_EXPLAIN');
+        $explain = self::getenv('FREE_MOVIE_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['FREEMOVIE_TEST_EXPLAIN'] = $explain;
+            $m['FREE_MOVIE_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

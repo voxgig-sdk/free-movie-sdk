@@ -40,7 +40,7 @@ class FreeMovieSDK
         $utility = new FreeMovieUtility();
         $this->_utility = $utility;
 
-        $config = FreeMovieConfig::make_config();
+        $config = FreeMovieConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -15,7 +15,7 @@ require_relative "../FreeMovie_sdk"
 module FreeMovieFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = FreeMovieConfig.make_config["feature"]
+    f = FreeMovieConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

@@ -40,7 +40,7 @@ class SearchEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = FreeMovieConfig::make_config();
+        $cfg = FreeMovieConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = FreeMovieSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

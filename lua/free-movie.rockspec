@@ -23,6 +23,7 @@ build = {
   modules = {
     ["free-movie_sdk"] = "free-movie_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

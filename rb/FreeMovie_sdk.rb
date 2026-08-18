@@ -28,7 +28,7 @@ class FreeMovieSDK
     utility = FreeMovieUtility.new
     @_utility = utility
 
-    config = FreeMovieConfig.make_config
+    config = FreeMovieConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -91,25 +91,25 @@ movie = client.Movie()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actors` | `str` | No |  |
-| `awards` | `str` | No |  |
-| `boxOffice` | `str` | No |  |
-| `country` | `str` | No |  |
-| `director` | `str` | No |  |
-| `genre` | `str` | No |  |
-| `id` | `str` | No |  |
-| `language` | `str` | No |  |
-| `plot` | `str` | No |  |
-| `poster` | `str` | No |  |
-| `rated` | `str` | No |  |
-| `rating` | `float` | No |  |
-| `released` | `str` | No |  |
-| `runtime` | `str` | No |  |
-| `title` | `str` | No |  |
-| `type` | `str` | No |  |
-| `votes` | `str` | No |  |
-| `writer` | `str` | No |  |
-| `year` | `str` | No |  |
+| `actors` | `str` | No | Comma-separated list of main actors |
+| `awards` | `str` | No | Awards and nominations |
+| `boxOffice` | `str` | No | Box office earnings |
+| `country` | `str` | No | Country of origin |
+| `director` | `str` | No | Director name(s) |
+| `genre` | `str` | No | Comma-separated list of genres |
+| `id` | `str` | No | Unique identifier for the movie/series |
+| `language` | `str` | No | Languages available |
+| `plot` | `str` | No | Plot summary |
+| `poster` | `str` | No | URL to the poster image |
+| `rated` | `str` | No | Content rating |
+| `rating` | `float` | No | IMDb rating |
+| `released` | `str` | No | Release date |
+| `runtime` | `str` | No | Runtime duration |
+| `title` | `str` | No | Title of the movie or series |
+| `type` | `str` | No | Type of content |
+| `votes` | `str` | No | Number of votes |
+| `writer` | `str` | No | Writer name(s) |
+| `year` | `str` | No | Release year |
 
 ### Operations
 
@@ -160,12 +160,12 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | No |  |
-| `poster` | `str` | No |  |
-| `rating` | `float` | No |  |
-| `title` | `str` | No |  |
-| `type` | `str` | No |  |
-| `year` | `str` | No |  |
+| `id` | `str` | No | Unique identifier for the movie/series |
+| `poster` | `str` | No | URL to the poster image |
+| `rating` | `float` | No | IMDb rating |
+| `title` | `str` | No | Title of the movie or series |
+| `type` | `str` | No | Type of content |
+| `year` | `str` | No | Release year |
 
 ### Operations
 

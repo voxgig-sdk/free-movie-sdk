@@ -240,25 +240,25 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `actors` |  |
-| `awards` |  |
-| `boxOffice` |  |
-| `country` |  |
-| `director` |  |
-| `genre` |  |
-| `id` |  |
-| `language` |  |
-| `plot` |  |
-| `poster` |  |
-| `rated` |  |
-| `rating` |  |
-| `released` |  |
-| `runtime` |  |
-| `title` |  |
-| `type` |  |
-| `votes` |  |
-| `writer` |  |
-| `year` |  |
+| `actors` | Comma-separated list of main actors |
+| `awards` | Awards and nominations |
+| `boxOffice` | Box office earnings |
+| `country` | Country of origin |
+| `director` | Director name(s) |
+| `genre` | Comma-separated list of genres |
+| `id` | Unique identifier for the movie/series |
+| `language` | Languages available |
+| `plot` | Plot summary |
+| `poster` | URL to the poster image |
+| `rated` | Content rating |
+| `rating` | IMDb rating |
+| `released` | Release date |
+| `runtime` | Runtime duration |
+| `title` | Title of the movie or series |
+| `type` | Type of content |
+| `votes` | Number of votes |
+| `writer` | Writer name(s) |
+| `year` | Release year |
 
 Operations: Load.
 
@@ -268,12 +268,12 @@ API path: `/movie/{id}`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `poster` |  |
-| `rating` |  |
-| `title` |  |
-| `type` |  |
-| `year` |  |
+| `id` | Unique identifier for the movie/series |
+| `poster` | URL to the poster image |
+| `rating` | IMDb rating |
+| `title` | Title of the movie or series |
+| `type` | Type of content |
+| `year` | Release year |
 
 Operations: List.
 
@@ -298,25 +298,25 @@ Create an instance: `movie = client.Movie`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `actors` | `String` |  |
-| `awards` | `String` |  |
-| `boxOffice` | `String` |  |
-| `country` | `String` |  |
-| `director` | `String` |  |
-| `genre` | `String` |  |
-| `id` | `String` |  |
-| `language` | `String` |  |
-| `plot` | `String` |  |
-| `poster` | `String` |  |
-| `rated` | `String` |  |
-| `rating` | `Float` |  |
-| `released` | `String` |  |
-| `runtime` | `String` |  |
-| `title` | `String` |  |
-| `type` | `String` |  |
-| `votes` | `String` |  |
-| `writer` | `String` |  |
-| `year` | `String` |  |
+| `actors` | `String` | Comma-separated list of main actors |
+| `awards` | `String` | Awards and nominations |
+| `boxOffice` | `String` | Box office earnings |
+| `country` | `String` | Country of origin |
+| `director` | `String` | Director name(s) |
+| `genre` | `String` | Comma-separated list of genres |
+| `id` | `String` | Unique identifier for the movie/series |
+| `language` | `String` | Languages available |
+| `plot` | `String` | Plot summary |
+| `poster` | `String` | URL to the poster image |
+| `rated` | `String` | Content rating |
+| `rating` | `Float` | IMDb rating |
+| `released` | `String` | Release date |
+| `runtime` | `String` | Runtime duration |
+| `title` | `String` | Title of the movie or series |
+| `type` | `String` | Type of content |
+| `votes` | `String` | Number of votes |
+| `writer` | `String` | Writer name(s) |
+| `year` | `String` | Release year |
 
 #### Example: Load
 
@@ -340,12 +340,12 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
-| `poster` | `String` |  |
-| `rating` | `Float` |  |
-| `title` | `String` |  |
-| `type` | `String` |  |
-| `year` | `String` |  |
+| `id` | `String` | Unique identifier for the movie/series |
+| `poster` | `String` | URL to the poster image |
+| `rating` | `Float` | IMDb rating |
+| `title` | `String` | Title of the movie or series |
+| `type` | `String` | Type of content |
+| `year` | `String` | Release year |
 
 #### Example: List
 

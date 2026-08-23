@@ -6,7 +6,7 @@ The Golang SDK for the FreeMovie API — an entity-oriented client using standar
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Movie(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,25 +261,25 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"actors"` |  |
-| `"awards"` |  |
-| `"boxOffice"` |  |
-| `"country"` |  |
-| `"director"` |  |
-| `"genre"` |  |
-| `"id"` |  |
-| `"language"` |  |
-| `"plot"` |  |
-| `"poster"` |  |
-| `"rated"` |  |
-| `"rating"` |  |
-| `"released"` |  |
-| `"runtime"` |  |
-| `"title"` |  |
-| `"type"` |  |
-| `"votes"` |  |
-| `"writer"` |  |
-| `"year"` |  |
+| `"actors"` | Comma-separated list of main actors |
+| `"awards"` | Awards and nominations |
+| `"boxOffice"` | Box office earnings |
+| `"country"` | Country of origin |
+| `"director"` | Director name(s) |
+| `"genre"` | Comma-separated list of genres |
+| `"id"` | Unique identifier for the movie/series |
+| `"language"` | Languages available |
+| `"plot"` | Plot summary |
+| `"poster"` | URL to the poster image |
+| `"rated"` | Content rating |
+| `"rating"` | IMDb rating |
+| `"released"` | Release date |
+| `"runtime"` | Runtime duration |
+| `"title"` | Title of the movie or series |
+| `"type"` | Type of content |
+| `"votes"` | Number of votes |
+| `"writer"` | Writer name(s) |
+| `"year"` | Release year |
 
 Operations: Load.
 
@@ -289,12 +289,12 @@ API path: `/movie/{id}`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"poster"` |  |
-| `"rating"` |  |
-| `"title"` |  |
-| `"type"` |  |
-| `"year"` |  |
+| `"id"` | Unique identifier for the movie/series |
+| `"poster"` | URL to the poster image |
+| `"rating"` | IMDb rating |
+| `"title"` | Title of the movie or series |
+| `"type"` | Type of content |
+| `"year"` | Release year |
 
 Operations: List.
 
@@ -319,25 +319,25 @@ Create an instance: `movie := client.Movie(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `actors` | `string` |  |
-| `awards` | `string` |  |
-| `boxOffice` | `string` |  |
-| `country` | `string` |  |
-| `director` | `string` |  |
-| `genre` | `string` |  |
-| `id` | `string` |  |
-| `language` | `string` |  |
-| `plot` | `string` |  |
-| `poster` | `string` |  |
-| `rated` | `string` |  |
-| `rating` | `float64` |  |
-| `released` | `string` |  |
-| `runtime` | `string` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
-| `votes` | `string` |  |
-| `writer` | `string` |  |
-| `year` | `string` |  |
+| `actors` | `string` | Comma-separated list of main actors |
+| `awards` | `string` | Awards and nominations |
+| `boxOffice` | `string` | Box office earnings |
+| `country` | `string` | Country of origin |
+| `director` | `string` | Director name(s) |
+| `genre` | `string` | Comma-separated list of genres |
+| `id` | `string` | Unique identifier for the movie/series |
+| `language` | `string` | Languages available |
+| `plot` | `string` | Plot summary |
+| `poster` | `string` | URL to the poster image |
+| `rated` | `string` | Content rating |
+| `rating` | `float64` | IMDb rating |
+| `released` | `string` | Release date |
+| `runtime` | `string` | Runtime duration |
+| `title` | `string` | Title of the movie or series |
+| `type` | `string` | Type of content |
+| `votes` | `string` | Number of votes |
+| `writer` | `string` | Writer name(s) |
+| `year` | `string` | Release year |
 
 #### Example: Load
 
@@ -364,12 +364,12 @@ Create an instance: `search := client.Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `poster` | `string` |  |
-| `rating` | `float64` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
-| `year` | `string` |  |
+| `id` | `string` | Unique identifier for the movie/series |
+| `poster` | `string` | URL to the poster image |
+| `rating` | `float64` | IMDb rating |
+| `title` | `string` | Title of the movie or series |
+| `type` | `string` | Type of content |
+| `year` | `string` | Release year |
 
 #### Example: List
 

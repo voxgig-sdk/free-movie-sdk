@@ -96,25 +96,25 @@ $movie = $client->Movie();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actors` | `string` | No |  |
-| `awards` | `string` | No |  |
-| `boxOffice` | `string` | No |  |
-| `country` | `string` | No |  |
-| `director` | `string` | No |  |
-| `genre` | `string` | No |  |
-| `id` | `string` | No |  |
-| `language` | `string` | No |  |
-| `plot` | `string` | No |  |
-| `poster` | `string` | No |  |
-| `rated` | `string` | No |  |
-| `rating` | `float` | No |  |
-| `released` | `string` | No |  |
-| `runtime` | `string` | No |  |
-| `title` | `string` | No |  |
-| `type` | `string` | No |  |
-| `votes` | `string` | No |  |
-| `writer` | `string` | No |  |
-| `year` | `string` | No |  |
+| `actors` | `string` | No | Comma-separated list of main actors |
+| `awards` | `string` | No | Awards and nominations |
+| `boxOffice` | `string` | No | Box office earnings |
+| `country` | `string` | No | Country of origin |
+| `director` | `string` | No | Director name(s) |
+| `genre` | `string` | No | Comma-separated list of genres |
+| `id` | `string` | No | Unique identifier for the movie/series |
+| `language` | `string` | No | Languages available |
+| `plot` | `string` | No | Plot summary |
+| `poster` | `string` | No | URL to the poster image |
+| `rated` | `string` | No | Content rating |
+| `rating` | `float` | No | IMDb rating |
+| `released` | `string` | No | Release date |
+| `runtime` | `string` | No | Runtime duration |
+| `title` | `string` | No | Title of the movie or series |
+| `type` | `string` | No | Type of content |
+| `votes` | `string` | No | Number of votes |
+| `writer` | `string` | No | Writer name(s) |
+| `year` | `string` | No | Release year |
 
 ### Operations
 
@@ -166,12 +166,12 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `poster` | `string` | No |  |
-| `rating` | `float` | No |  |
-| `title` | `string` | No |  |
-| `type` | `string` | No |  |
-| `year` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the movie/series |
+| `poster` | `string` | No | URL to the poster image |
+| `rating` | `float` | No | IMDb rating |
+| `title` | `string` | No | Title of the movie or series |
+| `type` | `string` | No | Type of content |
+| `year` | `string` | No | Release year |
 
 ### Operations
 

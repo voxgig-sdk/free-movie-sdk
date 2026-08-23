@@ -243,25 +243,25 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `actors` |  |
-| `awards` |  |
-| `boxOffice` |  |
-| `country` |  |
-| `director` |  |
-| `genre` |  |
-| `id` |  |
-| `language` |  |
-| `plot` |  |
-| `poster` |  |
-| `rated` |  |
-| `rating` |  |
-| `released` |  |
-| `runtime` |  |
-| `title` |  |
-| `type` |  |
-| `votes` |  |
-| `writer` |  |
-| `year` |  |
+| `actors` | Comma-separated list of main actors |
+| `awards` | Awards and nominations |
+| `boxOffice` | Box office earnings |
+| `country` | Country of origin |
+| `director` | Director name(s) |
+| `genre` | Comma-separated list of genres |
+| `id` | Unique identifier for the movie/series |
+| `language` | Languages available |
+| `plot` | Plot summary |
+| `poster` | URL to the poster image |
+| `rated` | Content rating |
+| `rating` | IMDb rating |
+| `released` | Release date |
+| `runtime` | Runtime duration |
+| `title` | Title of the movie or series |
+| `type` | Type of content |
+| `votes` | Number of votes |
+| `writer` | Writer name(s) |
+| `year` | Release year |
 
 Operations: Load.
 
@@ -271,12 +271,12 @@ API path: `/movie/{id}`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `poster` |  |
-| `rating` |  |
-| `title` |  |
-| `type` |  |
-| `year` |  |
+| `id` | Unique identifier for the movie/series |
+| `poster` | URL to the poster image |
+| `rating` | IMDb rating |
+| `title` | Title of the movie or series |
+| `type` | Type of content |
+| `year` | Release year |
 
 Operations: List.
 
@@ -301,25 +301,25 @@ Create an instance: `movie = client.Movie()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `actors` | `str` |  |
-| `awards` | `str` |  |
-| `boxOffice` | `str` |  |
-| `country` | `str` |  |
-| `director` | `str` |  |
-| `genre` | `str` |  |
-| `id` | `str` |  |
-| `language` | `str` |  |
-| `plot` | `str` |  |
-| `poster` | `str` |  |
-| `rated` | `str` |  |
-| `rating` | `float` |  |
-| `released` | `str` |  |
-| `runtime` | `str` |  |
-| `title` | `str` |  |
-| `type` | `str` |  |
-| `votes` | `str` |  |
-| `writer` | `str` |  |
-| `year` | `str` |  |
+| `actors` | `str` | Comma-separated list of main actors |
+| `awards` | `str` | Awards and nominations |
+| `boxOffice` | `str` | Box office earnings |
+| `country` | `str` | Country of origin |
+| `director` | `str` | Director name(s) |
+| `genre` | `str` | Comma-separated list of genres |
+| `id` | `str` | Unique identifier for the movie/series |
+| `language` | `str` | Languages available |
+| `plot` | `str` | Plot summary |
+| `poster` | `str` | URL to the poster image |
+| `rated` | `str` | Content rating |
+| `rating` | `float` | IMDb rating |
+| `released` | `str` | Release date |
+| `runtime` | `str` | Runtime duration |
+| `title` | `str` | Title of the movie or series |
+| `type` | `str` | Type of content |
+| `votes` | `str` | Number of votes |
+| `writer` | `str` | Writer name(s) |
+| `year` | `str` | Release year |
 
 #### Example: Load
 
@@ -342,12 +342,12 @@ Create an instance: `search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `poster` | `str` |  |
-| `rating` | `float` |  |
-| `title` | `str` |  |
-| `type` | `str` |  |
-| `year` | `str` |  |
+| `id` | `str` | Unique identifier for the movie/series |
+| `poster` | `str` | URL to the poster image |
+| `rating` | `float` | IMDb rating |
+| `title` | `str` | Title of the movie or series |
+| `type` | `str` | Type of content |
+| `year` | `str` | Release year |
 
 #### Example: List
 

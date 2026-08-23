@@ -8,31 +8,37 @@ main: kit: entity: search: {
     {
       name: "id"
       req: false
+      short: "Unique identifier for the movie/series"
       type: "`$STRING`"
     }
     {
       name: "poster"
       req: false
+      short: "URL to the poster image"
       type: "`$STRING`"
     }
     {
       name: "rating"
       req: false
+      short: "IMDb rating"
       type: "`$NUMBER`"
     }
     {
       name: "title"
       req: false
+      short: "Title of the movie or series"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "Type of content"
       type: "`$STRING`"
     }
     {
       name: "year"
       req: false
+      short: "Release year"
       type: "`$STRING`"
     }
   ]

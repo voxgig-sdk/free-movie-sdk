@@ -8,96 +8,115 @@ main: kit: entity: movie: {
     {
       name: "actors"
       req: false
+      short: "Comma-separated list of main actors"
       type: "`$STRING`"
     }
     {
       name: "awards"
       req: false
+      short: "Awards and nominations"
       type: "`$STRING`"
     }
     {
       name: "boxOffice"
       req: false
+      short: "Box office earnings"
       type: "`$STRING`"
     }
     {
       name: "country"
       req: false
+      short: "Country of origin"
       type: "`$STRING`"
     }
     {
       name: "director"
       req: false
+      short: "Director name(s)"
       type: "`$STRING`"
     }
     {
       name: "genre"
       req: false
+      short: "Comma-separated list of genres"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the movie/series"
       type: "`$STRING`"
     }
     {
       name: "language"
       req: false
+      short: "Languages available"
       type: "`$STRING`"
     }
     {
       name: "plot"
       req: false
+      short: "Plot summary"
       type: "`$STRING`"
     }
     {
       name: "poster"
       req: false
+      short: "URL to the poster image"
       type: "`$STRING`"
     }
     {
       name: "rated"
       req: false
+      short: "Content rating"
       type: "`$STRING`"
     }
     {
       name: "rating"
       req: false
+      short: "IMDb rating"
       type: "`$NUMBER`"
     }
     {
       name: "released"
       req: false
+      short: "Release date"
       type: "`$STRING`"
     }
     {
       name: "runtime"
       req: false
+      short: "Runtime duration"
       type: "`$STRING`"
     }
     {
       name: "title"
       req: false
+      short: "Title of the movie or series"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "Type of content"
       type: "`$STRING`"
     }
     {
       name: "votes"
       req: false
+      short: "Number of votes"
       type: "`$STRING`"
     }
     {
       name: "writer"
       req: false
+      short: "Writer name(s)"
       type: "`$STRING`"
     }
     {
       name: "year"
       req: false
+      short: "Release year"
       type: "`$STRING`"
     }
   ]

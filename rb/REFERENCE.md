@@ -97,25 +97,25 @@ movie = client.Movie
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actors` | `String` | No |  |
-| `awards` | `String` | No |  |
-| `boxOffice` | `String` | No |  |
-| `country` | `String` | No |  |
-| `director` | `String` | No |  |
-| `genre` | `String` | No |  |
-| `id` | `String` | No |  |
-| `language` | `String` | No |  |
-| `plot` | `String` | No |  |
-| `poster` | `String` | No |  |
-| `rated` | `String` | No |  |
-| `rating` | `Float` | No |  |
-| `released` | `String` | No |  |
-| `runtime` | `String` | No |  |
-| `title` | `String` | No |  |
-| `type` | `String` | No |  |
-| `votes` | `String` | No |  |
-| `writer` | `String` | No |  |
-| `year` | `String` | No |  |
+| `actors` | `String` | No | Comma-separated list of main actors |
+| `awards` | `String` | No | Awards and nominations |
+| `boxOffice` | `String` | No | Box office earnings |
+| `country` | `String` | No | Country of origin |
+| `director` | `String` | No | Director name(s) |
+| `genre` | `String` | No | Comma-separated list of genres |
+| `id` | `String` | No | Unique identifier for the movie/series |
+| `language` | `String` | No | Languages available |
+| `plot` | `String` | No | Plot summary |
+| `poster` | `String` | No | URL to the poster image |
+| `rated` | `String` | No | Content rating |
+| `rating` | `Float` | No | IMDb rating |
+| `released` | `String` | No | Release date |
+| `runtime` | `String` | No | Runtime duration |
+| `title` | `String` | No | Title of the movie or series |
+| `type` | `String` | No | Type of content |
+| `votes` | `String` | No | Number of votes |
+| `writer` | `String` | No | Writer name(s) |
+| `year` | `String` | No | Release year |
 
 ### Operations
 
@@ -167,12 +167,12 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | No |  |
-| `poster` | `String` | No |  |
-| `rating` | `Float` | No |  |
-| `title` | `String` | No |  |
-| `type` | `String` | No |  |
-| `year` | `String` | No |  |
+| `id` | `String` | No | Unique identifier for the movie/series |
+| `poster` | `String` | No | URL to the poster image |
+| `rating` | `Float` | No | IMDb rating |
+| `title` | `String` | No | Title of the movie or series |
+| `type` | `String` | No | Type of content |
+| `year` | `String` | No | Release year |
 
 ### Operations
 

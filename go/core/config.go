@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "FreeMovie",
+			"slug": "free-movie",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,78 +37,97 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "actors",
+						"short": "Comma-separated list of main actors",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "awards",
+						"short": "Awards and nominations",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "boxOffice",
+						"short": "Box office earnings",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "country",
+						"short": "Country of origin",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "director",
+						"short": "Director name(s)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "genre",
+						"short": "Comma-separated list of genres",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the movie/series",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "language",
+						"short": "Languages available",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "plot",
+						"short": "Plot summary",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "poster",
+						"short": "URL to the poster image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rated",
+						"short": "Content rating",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
+						"short": "IMDb rating",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "released",
+						"short": "Release date",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "runtime",
+						"short": "Runtime duration",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Title of the movie or series",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of content",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "votes",
+						"short": "Number of votes",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "writer",
+						"short": "Writer name(s)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year",
+						"short": "Release year",
 						"type": "`$STRING`",
 					},
 				},
@@ -156,26 +178,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the movie/series",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "poster",
+						"short": "URL to the poster image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
+						"short": "IMDb rating",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Title of the movie or series",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of content",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year",
+						"short": "Release year",
 						"type": "`$STRING`",
 					},
 				},

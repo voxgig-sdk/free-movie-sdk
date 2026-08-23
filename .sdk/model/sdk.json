@@ -36,114 +36,133 @@
               "active": true,
               "name": "actors",
               "req": false,
+              "short": "Comma-separated list of main actors",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "awards",
               "req": false,
+              "short": "Awards and nominations",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "boxOffice",
               "req": false,
+              "short": "Box office earnings",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country",
               "req": false,
+              "short": "Country of origin",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "director",
               "req": false,
+              "short": "Director name(s)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "genre",
               "req": false,
+              "short": "Comma-separated list of genres",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the movie/series",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "language",
               "req": false,
+              "short": "Languages available",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "plot",
               "req": false,
+              "short": "Plot summary",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "poster",
               "req": false,
+              "short": "URL to the poster image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rated",
               "req": false,
+              "short": "Content rating",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rating",
               "req": false,
+              "short": "IMDb rating",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "released",
               "req": false,
+              "short": "Release date",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "runtime",
               "req": false,
+              "short": "Runtime duration",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Title of the movie or series",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of content",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "votes",
               "req": false,
+              "short": "Number of votes",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "writer",
               "req": false,
+              "short": "Writer name(s)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "year",
               "req": false,
+              "short": "Release year",
               "type": "`$STRING`"
             }
           ],
@@ -206,36 +225,42 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the movie/series",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "poster",
               "req": false,
+              "short": "URL to the poster image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rating",
               "req": false,
+              "short": "IMDb rating",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Title of the movie or series",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of content",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "year",
               "req": false,
+              "short": "Release year",
               "type": "`$STRING`"
             }
           ],

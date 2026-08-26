@@ -42,6 +42,7 @@ class FreeMovieConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [

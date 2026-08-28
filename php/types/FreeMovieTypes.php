@@ -56,11 +56,8 @@ class Search
 /** Request payload for Search#list. */
 class SearchListMatch
 {
-    public ?string $id = null;
-    public ?string $poster = null;
-    public ?float $rating = null;
-    public ?string $title = null;
-    public ?string $type = null;
-    public ?string $year = null;
+    public ?int $limit = null;
+    public ?int $page = null;
+    public string $q;
 }
 

@@ -51,10 +51,10 @@ class Search(TypedDict, total=False):
     year: str
 
 
-class SearchListMatch(TypedDict, total=False):
-    id: str
-    poster: str
-    rating: float
-    title: str
-    type: str
-    year: str
+class SearchListMatchRequired(TypedDict):
+    q: str
+
+
+class SearchListMatch(SearchListMatchRequired, total=False):
+    limit: int
+    page: int

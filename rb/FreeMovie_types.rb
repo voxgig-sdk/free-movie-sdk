@@ -129,30 +129,18 @@ Search = Struct.new(
 
 # Request payload for Search#list.
 #
-# @!attribute [rw] id
-#   @return [String, nil]
+# @!attribute [rw] limit
+#   @return [Integer, nil]
 #
-# @!attribute [rw] poster
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] rating
-#   @return [Float, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
-#
-# @!attribute [rw] year
-#   @return [String, nil]
+# @!attribute [rw] q
+#   @return [String]
 SearchListMatch = Struct.new(
-  :id,
-  :poster,
-  :rating,
-  :title,
-  :type,
-  :year,
+  :limit,
+  :page,
+  :q,
   keyword_init: true
 )
 

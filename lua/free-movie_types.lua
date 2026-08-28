@@ -39,12 +39,9 @@
 ---@field year? string
 
 ---@class SearchListMatch
----@field id? string
----@field poster? string
----@field rating? number
----@field title? string
----@field type? string
----@field year? string
+---@field limit? number
+---@field page? number
+---@field q string
 
 local M = {}
 

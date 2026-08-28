@@ -41,11 +41,8 @@ export interface Search {
 }
 
 export interface SearchListMatch {
-  id?: string
-  poster?: string
-  rating?: number
-  title?: string
-  type?: string
-  year?: string
+  limit?: number
+  page?: number
+  q: string
 }
 

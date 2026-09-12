@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -125,6 +136,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "float",
           "name": "rating",
           "short": "IMDb rating",
           "type": "`$NUMBER`"
@@ -165,6 +177,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "movie",
       "op": {
         "load": {
@@ -187,9 +203,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/movie/{id}",
-              "parts": [
-                "movie",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "movie"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -199,7 +219,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "movie",
+                "{id}"
+              ]
             }
           ]
         }
@@ -221,6 +245,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "float",
           "name": "rating",
           "short": "IMDb rating",
           "type": "`$NUMBER`"
@@ -241,6 +266,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "search",
       "op": {
         "list": {
@@ -277,8 +306,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/search",
-              "parts": [
-                "search"
+              "segments": [
+                {
+                  "lit": "search"
+                }
               ],
               "select": {
                 "exist": [
@@ -290,7 +321,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.results`"
-              }
+              },
+              "parts": [
+                "search"
+              ]
             }
           ]
         }
@@ -306,6 +340,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

@@ -88,6 +88,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "rating",
             ["short"] = "IMDb rating",
             ["type"] = "`$NUMBER`",
@@ -128,6 +129,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "movie",
         ["op"] = {
           ["load"] = {
@@ -150,9 +155,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/movie/{id}",
-                ["parts"] = {
-                  "movie",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "movie",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -162,6 +171,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "movie",
+                  "{id}",
                 },
               },
             },
@@ -184,6 +197,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "rating",
             ["short"] = "IMDb rating",
             ["type"] = "`$NUMBER`",
@@ -203,6 +217,10 @@ local function make_config()
             ["short"] = "Release year",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "search",
         ["op"] = {
@@ -240,8 +258,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/search",
-                ["parts"] = {
-                  "search",
+                ["segments"] = {
+                  {
+                    ["lit"] = "search",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -253,6 +273,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.results`",
+                },
+                ["parts"] = {
+                  "search",
                 },
               },
             },

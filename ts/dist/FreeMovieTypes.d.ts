@@ -1,0 +1,37 @@
+export interface Movie {
+    actors?: string;
+    awards?: string;
+    boxOffice?: string;
+    country?: string;
+    director?: string;
+    genre?: string;
+    id?: string;
+    language?: string;
+    plot?: string;
+    poster?: string;
+    rated?: string;
+    rating?: number;
+    released?: string;
+    runtime?: string;
+    title?: string;
+    type?: string;
+    votes?: string;
+    writer?: string;
+    year?: string;
+}
+export interface MovieLoadMatch {
+    id: string;
+}
+export interface Search {
+    id?: string;
+    poster?: string;
+    rating?: number;
+    title?: string;
+    type?: string;
+    year?: string;
+}
+export interface SearchListMatch {
+    limit?: number;
+    page?: number;
+    q: string;
+}

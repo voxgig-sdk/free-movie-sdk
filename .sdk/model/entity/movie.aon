@@ -72,6 +72,7 @@ main: kit: entity: movie: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "rating"
       req: false
       short: "IMDb rating"
@@ -146,9 +147,13 @@ main: kit: entity: movie: {
           }
           method: "GET"
           orig: "/movie/{id}"
-          parts: [
-            "movie"
-            "{id}"
+          segments: [
+            {
+              lit: "movie"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

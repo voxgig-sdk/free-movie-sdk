@@ -18,6 +18,7 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "rating"
       req: false
       short: "IMDb rating"
@@ -84,8 +85,10 @@ main: kit: entity: search: {
           }
           method: "GET"
           orig: "/search"
-          parts: [
-            "search"
+          segments: [
+            {
+              lit: "search"
+            }
           ]
           select: {
             exist: [

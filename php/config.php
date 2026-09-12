@@ -114,6 +114,7 @@ class FreeMovieConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'rating',
               'short' => 'IMDb rating',
               'type' => '`$NUMBER`',
@@ -154,6 +155,10 @@ class FreeMovieConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'movie',
           'op' => [
             'load' => [
@@ -176,9 +181,13 @@ class FreeMovieConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/movie/{id}',
-                  'parts' => [
-                    'movie',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'movie',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -188,6 +197,10 @@ class FreeMovieConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'movie',
+                    '{id}',
                   ],
                 ],
               ],
@@ -210,6 +223,7 @@ class FreeMovieConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'rating',
               'short' => 'IMDb rating',
               'type' => '`$NUMBER`',
@@ -229,6 +243,10 @@ class FreeMovieConfig
               'short' => 'Release year',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'search',
           'op' => [
@@ -266,8 +284,10 @@ class FreeMovieConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/search',
-                  'parts' => [
-                    'search',
+                  'segments' => [
+                    [
+                      'lit' => 'search',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -279,6 +299,9 @@ class FreeMovieConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.results`',
+                  ],
+                  'parts' => [
+                    'search',
                   ],
                 ],
               ],

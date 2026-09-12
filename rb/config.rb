@@ -100,6 +100,7 @@ module FreeMovieConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "float",
               "name" => "rating",
               "short" => "IMDb rating",
               "type" => "`$NUMBER`",
@@ -140,6 +141,10 @@ module FreeMovieConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "movie",
           "op" => {
             "load" => {
@@ -162,9 +167,13 @@ module FreeMovieConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/movie/{id}",
-                  "parts" => [
-                    "movie",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "movie",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -175,6 +184,10 @@ module FreeMovieConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "movie",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -196,6 +209,7 @@ module FreeMovieConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "float",
               "name" => "rating",
               "short" => "IMDb rating",
               "type" => "`$NUMBER`",
@@ -216,6 +230,10 @@ module FreeMovieConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "search",
           "op" => {
             "list" => {
@@ -252,8 +270,10 @@ module FreeMovieConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/search",
-                  "parts" => [
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -266,6 +286,9 @@ module FreeMovieConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
+                  "parts" => [
+                    "search",
+                  ],
                 },
               ],
             },

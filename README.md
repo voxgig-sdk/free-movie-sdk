@@ -105,7 +105,7 @@ local result, err = client:Movie():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
+| TypeScript | `@voxgig-sdk/free-movie-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
 | Python | `voxgig-sdk-free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
 | PHP | `voxgig-sdk/free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/free-movie-sdk/go` | `go get github.com/voxgig-sdk/free-movie-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Movie():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { FreeMovieSDK } from '@voxgig-sdk/free-movie'
+import { FreeMovieSDK } from '@voxgig-sdk/free-movie-sdk'
 
 const client = new FreeMovieSDK()
 

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FreeMovieSDK } from '@voxgig-sdk/free-movie'
+import { FreeMovieSDK } from '@voxgig-sdk/free-movie-sdk'
 
 const client = new FreeMovieSDK()
 ```
@@ -484,7 +484,7 @@ free-movie/
 Import the SDK from the package root:
 
 ```ts
-import { FreeMovieSDK } from '@voxgig-sdk/free-movie'
+import { FreeMovieSDK } from '@voxgig-sdk/free-movie-sdk'
 ```
 
 ### Entity state

@@ -1,12 +1,18 @@
 # FreeMovie SDK feature factory
 
 from freemovie_sdk.feature.base_feature import FreeMovieBaseFeature
+from freemovie_sdk.feature.ratelimit_feature import FreeMovieRatelimitFeature
+from freemovie_sdk.feature.retry_feature import FreeMovieRetryFeature
 from freemovie_sdk.feature.test_feature import FreeMovieTestFeature
+from freemovie_sdk.feature.timeout_feature import FreeMovieTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FreeMovieBaseFeature(),
+    "ratelimit": lambda: FreeMovieRatelimitFeature(),
+    "retry": lambda: FreeMovieRetryFeature(),
     "test": lambda: FreeMovieTestFeature(),
+    "timeout": lambda: FreeMovieTimeoutFeature(),
 }
 
 

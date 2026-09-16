@@ -4,7 +4,10 @@ declare(strict_types=1);
 // FreeMovie SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class FreeMovieFeatures
@@ -14,8 +17,14 @@ class FreeMovieFeatures
         switch ($name) {
             case "base":
                 return new FreeMovieBaseFeature();
+            case "ratelimit":
+                return new FreeMovieRatelimitFeature();
+            case "retry":
+                return new FreeMovieRetryFeature();
             case "test":
                 return new FreeMovieTestFeature();
+            case "timeout":
+                return new FreeMovieTimeoutFeature();
             default:
                 return new FreeMovieBaseFeature();
         }
@@ -31,7 +40,10 @@ class FreeMovieFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

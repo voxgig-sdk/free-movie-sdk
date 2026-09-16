@@ -29,8 +29,17 @@ func init() {
 	core.NewBaseFeatureFunc = func() core.Feature {
 		return feature.NewBaseFeature()
 	}
+	core.NewRatelimitFeatureFunc = func() core.Feature {
+		return feature.NewRatelimitFeature()
+	}
+	core.NewRetryFeatureFunc = func() core.Feature {
+		return feature.NewRetryFeature()
+	}
 	core.NewTestFeatureFunc = func() core.Feature {
 		return feature.NewTestFeature()
+	}
+	core.NewTimeoutFeatureFunc = func() core.Feature {
+		return feature.NewTimeoutFeature()
 	}
 	core.NewMovieEntityFunc = func(client *core.FreeMovieSDK, entopts map[string]any) core.FreeMovieEntity {
 		return entity.NewMovieEntity(client, entopts)
@@ -58,4 +67,7 @@ var SharedConfig = core.SharedConfig
 func New() *FreeMovieSDK  { return NewFreeMovieSDK(nil) }
 func Test() *FreeMovieSDK { return TestSDK(nil, nil) }
 var NewBaseFeature = feature.NewBaseFeature
+var NewRatelimitFeature = feature.NewRatelimitFeature
+var NewRetryFeature = feature.NewRetryFeature
 var NewTestFeature = feature.NewTestFeature
+var NewTimeoutFeature = feature.NewTimeoutFeature

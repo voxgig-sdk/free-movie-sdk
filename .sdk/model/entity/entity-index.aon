@@ -1,4 +1,4 @@
 # Entity Models
 
-@"movie.aon"
-@"search.aon"
+@"./movie.aon"
+@"./search.aon"

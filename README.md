@@ -105,12 +105,12 @@ local result, err = client:Movie():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/free-movie-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
-| Python | `voxgig-sdk-free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
-| PHP | `voxgig-sdk/free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
+| TypeScript | `@voxgig-sdk/free-movie-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/tags) |
+| Python | `voxgig-sdk-free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/tags) |
+| PHP | `voxgig-sdk/free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/free-movie-sdk/go` | `go get github.com/voxgig-sdk/free-movie-sdk/go@latest` |
-| Ruby | `voxgig-sdk-free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
-| Lua | `voxgig-sdk-free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/releases) |
+| Ruby | `voxgig-sdk-free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/tags) |
+| Lua | `voxgig-sdk-free-movie` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-movie-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/free-movie-sdk/go-cli` | `go install github.com/voxgig-sdk/free-movie-sdk/go-cli/cmd/free-movie@latest` |
 | Go MCP server | `github.com/voxgig-sdk/free-movie-sdk/go-mcp` | `go get github.com/voxgig-sdk/free-movie-sdk/go-mcp@latest` |
 

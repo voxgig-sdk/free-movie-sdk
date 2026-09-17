@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicMovieFlow.aon"
-@"BasicSearchFlow.aon"
+@"./BasicMovieFlow.aon"
+@"./BasicSearchFlow.aon"

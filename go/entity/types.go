@@ -1,7 +1,7 @@
 // Typed models for the FreeMovie SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,25 +14,6 @@ import (
 
 // Movie is the typed data model for the movie entity.
 type Movie struct {
-	Actors *string `json:"actors,omitempty"`
-	Awards *string `json:"awards,omitempty"`
-	BoxOffice *string `json:"boxOffice,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Director *string `json:"director,omitempty"`
-	Genre *string `json:"genre,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Language *string `json:"language,omitempty"`
-	Plot *string `json:"plot,omitempty"`
-	Poster *string `json:"poster,omitempty"`
-	Rated *string `json:"rated,omitempty"`
-	Rating *float64 `json:"rating,omitempty"`
-	Released *string `json:"released,omitempty"`
-	Runtime *string `json:"runtime,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Votes *string `json:"votes,omitempty"`
-	Writer *string `json:"writer,omitempty"`
-	Year *string `json:"year,omitempty"`
 }
 
 // MovieLoadMatch is the typed request payload for Movie.LoadTyped.
@@ -42,12 +23,6 @@ type MovieLoadMatch struct {
 
 // Search is the typed data model for the search entity.
 type Search struct {
-	Id *string `json:"id,omitempty"`
-	Poster *string `json:"poster,omitempty"`
-	Rating *float64 `json:"rating,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Year *string `json:"year,omitempty"`
 }
 
 // SearchListMatch is the typed request payload for Search.ListTyped.

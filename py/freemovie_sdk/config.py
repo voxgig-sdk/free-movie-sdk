@@ -117,99 +117,118 @@ def make_config():
         "fields": [
           {
             "name": "actors",
-            "short": "Comma-separated list of main actors",
+            "title": "Actors",
             "type": "`$STRING`",
+            "short": "Comma-separated list of main actors",
           },
           {
             "name": "awards",
-            "short": "Awards and nominations",
+            "title": "Awards",
             "type": "`$STRING`",
+            "short": "Awards and nominations",
           },
           {
             "name": "boxOffice",
-            "short": "Box office earnings",
+            "title": "Box Office",
             "type": "`$STRING`",
+            "short": "Box office earnings",
           },
           {
             "name": "country",
-            "short": "Country of origin",
+            "title": "Country",
             "type": "`$STRING`",
+            "short": "Country of origin",
           },
           {
             "name": "director",
-            "short": "Director name(s)",
+            "title": "Director",
             "type": "`$STRING`",
+            "short": "Director name(s)",
           },
           {
             "name": "genre",
-            "short": "Comma-separated list of genres",
+            "title": "Genre",
             "type": "`$STRING`",
+            "short": "Comma-separated list of genres",
           },
           {
             "name": "id",
-            "short": "Unique identifier for the movie/series",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier for the movie/series",
           },
           {
             "name": "language",
-            "short": "Languages available",
+            "title": "Language",
             "type": "`$STRING`",
+            "short": "Languages available",
           },
           {
             "name": "plot",
-            "short": "Plot summary",
+            "title": "Plot",
             "type": "`$STRING`",
+            "short": "Plot summary",
           },
           {
             "name": "poster",
-            "short": "URL to the poster image",
+            "title": "Poster",
             "type": "`$STRING`",
+            "short": "URL to the poster image",
           },
           {
             "name": "rated",
-            "short": "Content rating",
+            "title": "Rated",
             "type": "`$STRING`",
+            "short": "Content rating",
           },
           {
-            "format": "float",
             "name": "rating",
-            "short": "IMDb rating",
+            "title": "Rating",
             "type": "`$NUMBER`",
+            "short": "IMDb rating",
+            "format": "float",
           },
           {
             "name": "released",
-            "short": "Release date",
+            "title": "Released",
             "type": "`$STRING`",
+            "short": "Release date",
           },
           {
             "name": "runtime",
-            "short": "Runtime duration",
+            "title": "Runtime",
             "type": "`$STRING`",
+            "short": "Runtime duration",
           },
           {
             "name": "title",
-            "short": "Title of the movie or series",
+            "title": "Title",
             "type": "`$STRING`",
+            "short": "Title of the movie or series",
           },
           {
             "name": "type",
-            "short": "Type of content",
+            "title": "Type",
             "type": "`$STRING`",
+            "short": "Type of content",
           },
           {
             "name": "votes",
-            "short": "Number of votes",
+            "title": "Votes",
             "type": "`$STRING`",
+            "short": "Number of votes",
           },
           {
             "name": "writer",
-            "short": "Writer name(s)",
+            "title": "Writer",
             "type": "`$STRING`",
+            "short": "Writer name(s)",
           },
           {
             "name": "year",
-            "short": "Release year",
+            "title": "Year",
             "type": "`$STRING`",
+            "short": "Release year",
           },
         ],
         "id": {
@@ -223,18 +242,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "tt0133093",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/movie/{id}",
@@ -246,19 +253,32 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "movie",
+                  "{id}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "tt0133093",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "movie",
-                  "{id}",
-                ],
               },
             ],
           },
@@ -271,34 +291,40 @@ def make_config():
         "fields": [
           {
             "name": "id",
-            "short": "Unique identifier for the movie/series",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier for the movie/series",
           },
           {
             "name": "poster",
-            "short": "URL to the poster image",
+            "title": "Poster",
             "type": "`$STRING`",
+            "short": "URL to the poster image",
           },
           {
-            "format": "float",
             "name": "rating",
-            "short": "IMDb rating",
+            "title": "Rating",
             "type": "`$NUMBER`",
+            "short": "IMDb rating",
+            "format": "float",
           },
           {
             "name": "title",
-            "short": "Title of the movie or series",
+            "title": "Title",
             "type": "`$STRING`",
+            "short": "Title of the movie or series",
           },
           {
             "name": "type",
-            "short": "Type of content",
+            "title": "Type",
             "type": "`$STRING`",
+            "short": "Type of content",
           },
           {
             "name": "year",
-            "short": "Release year",
+            "title": "Year",
             "type": "`$STRING`",
+            "short": "Release year",
           },
         ],
         "id": {
@@ -312,32 +338,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": 10,
-                      "kind": "query",
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 1,
-                      "kind": "query",
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": "The Matrix",
-                      "kind": "query",
-                      "name": "q",
-                      "orig": "q",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/search",
@@ -346,6 +346,40 @@ def make_config():
                     "lit": "search",
                   },
                 ],
+                "parts": [
+                  "search",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.results`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 10,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "q",
+                      "orig": "q",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "The Matrix",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "limit",
@@ -353,13 +387,6 @@ def make_config():
                     "q",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.results`",
-                },
-                "parts": [
-                  "search",
-                ],
               },
             ],
           },

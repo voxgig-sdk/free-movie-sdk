@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -115,99 +108,118 @@ class Config {
             "fields": [
                 {
                     "name": "actors",
-                    "short": "Comma-separated list of main actors",
-                    "type": "`$STRING`"
+                    "title": "Actors",
+                    "type": "`$STRING`",
+                    "short": "Comma-separated list of main actors"
                 },
                 {
                     "name": "awards",
-                    "short": "Awards and nominations",
-                    "type": "`$STRING`"
+                    "title": "Awards",
+                    "type": "`$STRING`",
+                    "short": "Awards and nominations"
                 },
                 {
                     "name": "boxOffice",
-                    "short": "Box office earnings",
-                    "type": "`$STRING`"
+                    "title": "Box Office",
+                    "type": "`$STRING`",
+                    "short": "Box office earnings"
                 },
                 {
                     "name": "country",
-                    "short": "Country of origin",
-                    "type": "`$STRING`"
+                    "title": "Country",
+                    "type": "`$STRING`",
+                    "short": "Country of origin"
                 },
                 {
                     "name": "director",
-                    "short": "Director name(s)",
-                    "type": "`$STRING`"
+                    "title": "Director",
+                    "type": "`$STRING`",
+                    "short": "Director name(s)"
                 },
                 {
                     "name": "genre",
-                    "short": "Comma-separated list of genres",
-                    "type": "`$STRING`"
+                    "title": "Genre",
+                    "type": "`$STRING`",
+                    "short": "Comma-separated list of genres"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the movie/series",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier for the movie/series"
                 },
                 {
                     "name": "language",
-                    "short": "Languages available",
-                    "type": "`$STRING`"
+                    "title": "Language",
+                    "type": "`$STRING`",
+                    "short": "Languages available"
                 },
                 {
                     "name": "plot",
-                    "short": "Plot summary",
-                    "type": "`$STRING`"
+                    "title": "Plot",
+                    "type": "`$STRING`",
+                    "short": "Plot summary"
                 },
                 {
                     "name": "poster",
-                    "short": "URL to the poster image",
-                    "type": "`$STRING`"
+                    "title": "Poster",
+                    "type": "`$STRING`",
+                    "short": "URL to the poster image"
                 },
                 {
                     "name": "rated",
-                    "short": "Content rating",
-                    "type": "`$STRING`"
+                    "title": "Rated",
+                    "type": "`$STRING`",
+                    "short": "Content rating"
                 },
                 {
-                    "format": "float",
                     "name": "rating",
+                    "title": "Rating",
+                    "type": "`$NUMBER`",
                     "short": "IMDb rating",
-                    "type": "`$NUMBER`"
+                    "format": "float"
                 },
                 {
                     "name": "released",
-                    "short": "Release date",
-                    "type": "`$STRING`"
+                    "title": "Released",
+                    "type": "`$STRING`",
+                    "short": "Release date"
                 },
                 {
                     "name": "runtime",
-                    "short": "Runtime duration",
-                    "type": "`$STRING`"
+                    "title": "Runtime",
+                    "type": "`$STRING`",
+                    "short": "Runtime duration"
                 },
                 {
                     "name": "title",
-                    "short": "Title of the movie or series",
-                    "type": "`$STRING`"
+                    "title": "Title",
+                    "type": "`$STRING`",
+                    "short": "Title of the movie or series"
                 },
                 {
                     "name": "type",
-                    "short": "Type of content",
-                    "type": "`$STRING`"
+                    "title": "Type",
+                    "type": "`$STRING`",
+                    "short": "Type of content"
                 },
                 {
                     "name": "votes",
-                    "short": "Number of votes",
-                    "type": "`$STRING`"
+                    "title": "Votes",
+                    "type": "`$STRING`",
+                    "short": "Number of votes"
                 },
                 {
                     "name": "writer",
-                    "short": "Writer name(s)",
-                    "type": "`$STRING`"
+                    "title": "Writer",
+                    "type": "`$STRING`",
+                    "short": "Writer name(s)"
                 },
                 {
                     "name": "year",
-                    "short": "Release year",
-                    "type": "`$STRING`"
+                    "title": "Year",
+                    "type": "`$STRING`",
+                    "short": "Release year"
                 }
             ],
             "id": {
@@ -221,18 +233,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "tt0133093",
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/movie/{id}",
@@ -244,19 +244,32 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "movie",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "movie",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "tt0133093"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -269,34 +282,40 @@ class Config {
             "fields": [
                 {
                     "name": "id",
-                    "short": "Unique identifier for the movie/series",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier for the movie/series"
                 },
                 {
                     "name": "poster",
-                    "short": "URL to the poster image",
-                    "type": "`$STRING`"
+                    "title": "Poster",
+                    "type": "`$STRING`",
+                    "short": "URL to the poster image"
                 },
                 {
-                    "format": "float",
                     "name": "rating",
+                    "title": "Rating",
+                    "type": "`$NUMBER`",
                     "short": "IMDb rating",
-                    "type": "`$NUMBER`"
+                    "format": "float"
                 },
                 {
                     "name": "title",
-                    "short": "Title of the movie or series",
-                    "type": "`$STRING`"
+                    "title": "Title",
+                    "type": "`$STRING`",
+                    "short": "Title of the movie or series"
                 },
                 {
                     "name": "type",
-                    "short": "Type of content",
-                    "type": "`$STRING`"
+                    "title": "Type",
+                    "type": "`$STRING`",
+                    "short": "Type of content"
                 },
                 {
                     "name": "year",
-                    "short": "Release year",
-                    "type": "`$STRING`"
+                    "title": "Year",
+                    "type": "`$STRING`",
+                    "short": "Release year"
                 }
             ],
             "id": {
@@ -310,32 +329,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": 10,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 1,
-                                        "kind": "query",
-                                        "name": "page",
-                                        "orig": "page",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": "The Matrix",
-                                        "kind": "query",
-                                        "name": "q",
-                                        "orig": "q",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/search",
@@ -344,20 +337,47 @@ class Config {
                                     "lit": "search"
                                 }
                             ],
+                            "parts": [
+                                "search"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.results`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 10
+                                    },
+                                    {
+                                        "name": "page",
+                                        "orig": "page",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 1
+                                    },
+                                    {
+                                        "name": "q",
+                                        "orig": "q",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "The Matrix"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "limit",
                                     "page",
                                     "q"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.results`"
-                            },
-                            "parts": [
-                                "search"
-                            ]
+                            }
                         }
                     ]
                 }

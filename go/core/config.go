@@ -92,99 +92,118 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "actors",
-						"short": "Comma-separated list of main actors",
+						"title": "Actors",
 						"type": "`$STRING`",
+						"short": "Comma-separated list of main actors",
 					},
 					map[string]any{
 						"name": "awards",
-						"short": "Awards and nominations",
+						"title": "Awards",
 						"type": "`$STRING`",
+						"short": "Awards and nominations",
 					},
 					map[string]any{
 						"name": "boxOffice",
-						"short": "Box office earnings",
+						"title": "Box Office",
 						"type": "`$STRING`",
+						"short": "Box office earnings",
 					},
 					map[string]any{
 						"name": "country",
-						"short": "Country of origin",
+						"title": "Country",
 						"type": "`$STRING`",
+						"short": "Country of origin",
 					},
 					map[string]any{
 						"name": "director",
-						"short": "Director name(s)",
+						"title": "Director",
 						"type": "`$STRING`",
+						"short": "Director name(s)",
 					},
 					map[string]any{
 						"name": "genre",
-						"short": "Comma-separated list of genres",
+						"title": "Genre",
 						"type": "`$STRING`",
+						"short": "Comma-separated list of genres",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the movie/series",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the movie/series",
 					},
 					map[string]any{
 						"name": "language",
-						"short": "Languages available",
+						"title": "Language",
 						"type": "`$STRING`",
+						"short": "Languages available",
 					},
 					map[string]any{
 						"name": "plot",
-						"short": "Plot summary",
+						"title": "Plot",
 						"type": "`$STRING`",
+						"short": "Plot summary",
 					},
 					map[string]any{
 						"name": "poster",
-						"short": "URL to the poster image",
+						"title": "Poster",
 						"type": "`$STRING`",
+						"short": "URL to the poster image",
 					},
 					map[string]any{
 						"name": "rated",
-						"short": "Content rating",
+						"title": "Rated",
 						"type": "`$STRING`",
+						"short": "Content rating",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "rating",
-						"short": "IMDb rating",
+						"title": "Rating",
 						"type": "`$NUMBER`",
+						"short": "IMDb rating",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "released",
-						"short": "Release date",
+						"title": "Released",
 						"type": "`$STRING`",
+						"short": "Release date",
 					},
 					map[string]any{
 						"name": "runtime",
-						"short": "Runtime duration",
+						"title": "Runtime",
 						"type": "`$STRING`",
+						"short": "Runtime duration",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Title of the movie or series",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Title of the movie or series",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of content",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of content",
 					},
 					map[string]any{
 						"name": "votes",
-						"short": "Number of votes",
+						"title": "Votes",
 						"type": "`$STRING`",
+						"short": "Number of votes",
 					},
 					map[string]any{
 						"name": "writer",
-						"short": "Writer name(s)",
+						"title": "Writer",
 						"type": "`$STRING`",
+						"short": "Writer name(s)",
 					},
 					map[string]any{
 						"name": "year",
-						"short": "Release year",
+						"title": "Year",
 						"type": "`$STRING`",
+						"short": "Release year",
 					},
 				},
 				"id": map[string]any{
@@ -198,18 +217,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "tt0133093",
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/movie/{id}",
@@ -221,18 +228,31 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"movie",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"movie",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "tt0133093",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -246,34 +266,40 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the movie/series",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the movie/series",
 					},
 					map[string]any{
 						"name": "poster",
-						"short": "URL to the poster image",
+						"title": "Poster",
 						"type": "`$STRING`",
+						"short": "URL to the poster image",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "rating",
-						"short": "IMDb rating",
+						"title": "Rating",
 						"type": "`$NUMBER`",
+						"short": "IMDb rating",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Title of the movie or series",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Title of the movie or series",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of content",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of content",
 					},
 					map[string]any{
 						"name": "year",
-						"short": "Release year",
+						"title": "Year",
 						"type": "`$STRING`",
+						"short": "Release year",
 					},
 				},
 				"id": map[string]any{
@@ -287,32 +313,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "The Matrix",
-											"kind": "query",
-											"name": "q",
-											"orig": "q",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/search",
@@ -321,19 +321,46 @@ func MakeConfig() map[string]any {
 										"lit": "search",
 									},
 								},
+								"parts": []any{
+									"search",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.results`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "q",
+											"orig": "q",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "The Matrix",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"limit",
 										"page",
 										"q",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.results`",
-								},
-								"parts": []any{
-									"search",
 								},
 							},
 						},

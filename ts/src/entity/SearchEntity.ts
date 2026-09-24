@@ -19,7 +19,6 @@ import type {
   SearchListMatch,
 } from '../FreeMovieTypes'
 
-// TODO: needs Entity superclass
 class SearchEntity extends FreeMovieEntityBase<Search> {
 
   constructor(client: FreeMovieSDK, entopts: any) {

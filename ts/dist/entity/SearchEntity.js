@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchEntity = void 0;
 const FreeMovieEntityBase_1 = require("../FreeMovieEntityBase");
-// TODO: needs Entity superclass
 class SearchEntity extends FreeMovieEntityBase_1.FreeMovieEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

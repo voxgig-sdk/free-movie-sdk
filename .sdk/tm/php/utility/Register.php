@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 FreeMovieUtility::setRegistrar(function (FreeMovieUtility $u): void {
     $u->clean = [FreeMovieClean::class, 'call'];
+    $u->clean_add = [FreeMovieClean::class, 'add'];
+    $u->clean_explain = [FreeMovieDone::class, 'clean_explain'];
     $u->done = [FreeMovieDone::class, 'call'];
     $u->make_error = [FreeMovieMakeError::class, 'call'];
     $u->feature_add = [FreeMovieFeatureAdd::class, 'call'];

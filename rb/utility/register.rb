@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 FreeMovieUtility.registrar = ->(u) {
   u.clean = FreeMovieUtilities::Clean
+  u.clean_add = FreeMovieUtilities::CleanAdd
+  u.clean_explain = FreeMovieUtilities::CleanExplain
   u.done = FreeMovieUtilities::Done
   u.make_error = FreeMovieUtilities::MakeError
   u.feature_add = FreeMovieUtilities::FeatureAdd

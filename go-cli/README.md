@@ -21,6 +21,7 @@ export FREE_MOVIE_APIKEY=sk_live_xxx
 # 4. Each command line is ONE boru expression, run against the API:
 ./free-movie-cli load 1 movie            # {id:1} shorthand
 ./free-movie-cli load '{id:1}' movie       # explicit match map
+./free-movie-cli list search
 
 # 5. Override the API base URL for a single call
 FREE_MOVIE_BASE=https://api.example.com ./free-movie-cli load 1 movie

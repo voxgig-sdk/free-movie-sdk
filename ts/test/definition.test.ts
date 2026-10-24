@@ -23,7 +23,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -57,15 +62,33 @@ const PLAN: any[] = [
     "path": "/search",
     "args": [],
     "select": {
-      "limit": "v1",
-      "page": "v1",
-      "q": "The Matrix"
+      "q": "The Matrix",
+      "limit": 10,
+      "page": 1
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "q",
       "page",
       "limit"
+    ],
+    "queryArgs": [
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "page",
+        "wire": "page"
+      },
+      {
+        "name": "q",
+        "wire": "q"
+      }
     ],
     "auth": null,
     "status": 200,
@@ -74,11 +97,11 @@ const PLAN: any[] = [
       "results": [
         {
           "id": "tt0133093",
-          "poster": "https://example.com/poster.jpg",
-          "rating": 8.7,
           "title": "The Matrix",
+          "year": "1999",
           "type": "movie",
-          "year": "1999"
+          "poster": "https://example.com/poster.jpg",
+          "rating": 8.7
         }
       ],
       "total": 150,

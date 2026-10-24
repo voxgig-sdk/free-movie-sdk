@@ -3,5 +3,23 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Awards and nominations",
+      "Box office earnings",
+      "Comma-separated list of main actors",
+      "Country of origin",
+      "Director name(s)",
+      "IMDb rating",
+      "Production server",
+      "Successful response with movie details",
+      "Successful response with search results",
+      "This API provides access to a wide range of movie and series information without requiring API keys. Users can fetch detailed movie data, including titles, genres, and descriptions efficiently and for free. The API is a RESTful web service to obtain movie information. All content and images on the site are contributed and maintained by users.",
+      "Title of the movie or series",
+      "Type of content",
+      "URL to the poster image",
+      "Unique identifier for the movie/series"
+    ]
+  }
 }

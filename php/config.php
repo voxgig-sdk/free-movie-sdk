@@ -93,6 +93,7 @@ class FreeMovieConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -276,6 +277,10 @@ class FreeMovieConfig
                       'id',
                     ],
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -379,10 +384,12 @@ class FreeMovieConfig
                   ],
                   'select' => [
                     'exist' => [
-                      'limit',
-                      'page',
                       'q',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

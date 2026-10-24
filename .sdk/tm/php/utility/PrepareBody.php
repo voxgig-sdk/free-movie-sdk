@@ -3,11 +3,16 @@ declare(strict_types=1);
 
 // FreeMovie SDK utility: prepare_body
 
+require_once __DIR__ . '/Media.php';
+
 class FreeMoviePrepareBody
 {
     public static function call(FreeMovieContext $ctx): mixed
     {
         if ($ctx->op->input === 'data') {
+            if (FreeMovieMedia::isRawRequest($ctx->point)) {
+                return FreeMovieMedia::rawBody($ctx->reqdata);
+            }
             $body = ($ctx->utility->transform_request)($ctx);
             // PHP cannot tell an empty map from an empty list, and this
             // vendored struct answers [] where the canonical transform

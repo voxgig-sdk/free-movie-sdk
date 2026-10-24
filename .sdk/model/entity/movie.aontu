@@ -176,6 +176,10 @@ main: kit: entity: movie: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "movie"

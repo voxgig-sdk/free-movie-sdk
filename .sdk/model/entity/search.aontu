@@ -98,10 +98,12 @@ main: kit: entity: search: {
           o: "/search"
           q: {
             exist: [
-              "limit"
-              "page"
               "q"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

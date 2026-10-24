@@ -79,6 +79,7 @@ module FreeMovieConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -262,6 +263,10 @@ module FreeMovieConfig
                       "id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -365,10 +370,12 @@ module FreeMovieConfig
                   },
                   "select" => {
                     "exist" => [
-                      "limit",
-                      "page",
                       "q",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
